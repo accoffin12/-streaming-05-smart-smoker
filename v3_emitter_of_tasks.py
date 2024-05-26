@@ -1,15 +1,9 @@
 """
-    Edited by: A. C. Coffin
-    22 May 2024
-    NW Missouri State University
+    Sample of v3 emitter from M4 repo, to serve as base for developement of smoker producer.
+    Included as a guide in developing the script. The one is designed to emit multiple messages to multiple Consumers.
 
-    Notes:
-    A logger to track outputs of the function.
-    Creating a function to read the csv file by the Producer in order to send it to the queue. 
-    Adding a path to the CSV as well as hosting information to complete the process. 
-    Process will continue to run until the tasks within tasks.csv complete.
-
-    To make example clear, run the emitter in VS Code, it visually makes it easier to keep track of.
+    Added by: A. C. Coffin
+    Date 26 May 2024
 
     ----
     

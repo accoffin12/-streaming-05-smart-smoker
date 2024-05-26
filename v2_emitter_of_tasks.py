@@ -1,6 +1,9 @@
 """
-    Successfully sent task 2 - AC
-    Added logger and output logger file
+    Sample of v2 emitter from M4 repo, to serve as base for developement of smoker producer.
+    Included as a guide in developing the script. The one is designed to emit a single message to multiple Consumers.
+
+    Added by: A. C. Coffin
+    Date 26 May 2024
 
     ----
     
