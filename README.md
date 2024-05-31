@@ -1,8 +1,11 @@
 # streaming-05-smart-smoker
 > Created by: A. C. Coffin | Completed: 2024 May | NW Missouri State University | CSIS: 44671-80| Dr. Case | Developing a Producer for RabbitMQ
 
-# Overview
-Developing a Producer to read the temperature of a Smart Smoker based on specific events. This will be done through simulating temerature readings from the smart smoker of two foods. Create a producer to send these temeprature readings to RabbitMQ and then three consumer processes, each on monitoring one of the temperature streams. Within each consumer it must perform calculations to determine if a significant event has occured. This is the first half, where the focus is on the developement of a Producer. 
+# Overview (Updated)
+Developing a Producer to read the temperature of a Smart Smoker based on specific events. This will be done through simulating temerature readings from the smart smoker of two foods. Create a producer to send these temeprature readings to RabbitMQ and then three consumer processes, each on monitoring one of the temperature streams. Within each consumer it must perform calculations to determine if a significant event has occured. This is the first half, where the focus is on the developement of a Producer.
+
+Update:
+This Repo was added to on 31 May 2024 to contain three seperate Consumers that work in conjunction with the producer previously designed. Thier associated sections have been added.
 
 # Screen Shot
 ![R3ProducerV1SendMessage.PNG](/ScreenShots/R3ProducerV1SendMessage.PNG)
@@ -15,9 +18,10 @@ Developing a Producer to read the temperature of a Smart Smoker based on specifi
 5. [Creating Enviroment & Installs](Creating_Enviroment_&_Installs)
 6. [Data & Project Specifics](Data_&_Project_Specifics)
 7. [Developing Producer](Developing_Producer)
-8. [Running Producer](Running_Producer)
-9. [Results](Results)
-10. [References](References)
+8. [Developing Consumer](Developing_Consumer)
+9. [Running Producer/Consumer](Running_Producer/Consumer)
+10. [Results](Results)
+11. [References](References)
 
 # 1. File List
 | File Name | Repo Location | File Type |
@@ -30,6 +34,8 @@ Developing a Producer to read the temperature of a Smart Smoker based on specifi
 | Data_smoker-temps.csv | main repo | csv |
 | requirements.txt | main repo | text |
 | v2_emitter_of_tasks.py | BaseCode_Samples folder | python script |
+| v2_listening_worker.py | BaseCode_Samples folder | python script |
+| v3_listenin_worker.py | BaseCode_Samples folder | python script | 
 | temp_producerV1.py | main repo | python script |
 | R1ProducerV1SendMessage.PNG | ScreenShots folder | PNG |
 | R2Producerv1SendMessage.PNG | ScreenShots folder | PNG |
@@ -96,10 +102,12 @@ smoker-temps.csv has 4 columns:
 * AFTER earning credit for the assignment, THEN create and share additional custom projects. 
 It's important to note that this project only develops a Producer, we will be heavily relying on the RabbitMQ Admin Panel and logs. The logs for this project have been included in the repository to show that the message is being sent to the queue. 
 
-# 7. Developing Producer
+# 7. Developing Producer/Consumer
 The Producer for this project is based on a Base Code provided by Dr. Case called v2_emitter_of_tasks from the streaming-04-multiple-consumers. Samples of the v2_emitter_of_tasks.py can be found in the BaseCode_Samples folder and two variations on a Consumer. The entire base code was kept, with some sections modified to meet the assignment requirements. The original code included a path to the RabbitMQ Admin Website in lines 44 to 51. 
 
-## 7a. send_message Function
+The same can be said for the consumer which also utilizes a variation of the v2_listening_worker.py found in streaming-04-multiple-consumers written by Dr. Case. A sample has been included in the folder BaseCode_Samples.
+
+## 7a. Producer: send_message Function
 This particular Producer focused on developing a Producer that would stream data to 3 separate queues, smoker_queue, foodA_queue, and foodB_queue. To do this the variables were declared upfront. There were complications when the variables were placed under the entry point, so they were moved to the top under the Imported Libraries. 
 
 ```
@@ -135,7 +143,7 @@ except KeyboardInterrupt:
          logger.info("KeyboardInterrupt. Stopping the program.")
 ```
 
-## 7b. main function
+## 7b. Producer: main function
 This portion was designed to open a CSV and iterate through each of the rows based on the column information to the corresponding queue. There are a total of 4 columns in the CSV, however only 3 need queues of their own. 
 
 When creating the read function, we use row numbers to correspond with each row's information.
@@ -160,7 +168,7 @@ A time and date split was performed as the data could not be transformed into a 
 ```
 Another exception handler was added in case the CSV file could not be found, or there was a value error. The CSV file does contain a Header Row, this was handled within the code. If we were to call float("Channel1") in the beginning, which is not a float value, without skipping the header we would receive an error stating that the input was not the expected data type. So with this particular code, the line was skipped in the reader using `header = next(reader)`. 
 
-# 8. Running Producer
+# 8. Running Producer/Consumer
 To run the Producer open a terminal in VS Code, in this case, we won't have to worry about a Consumer, so don't panic when we only see the print messages. **Before Running Producer, make sure RabbitMQ is running, it will not work if it isn't.**
 
 Once in the terminal type command:
@@ -176,7 +184,7 @@ The terminal when running should look like this before adding the variable messa
 ![R1ProducerV1SendMessages.PNG](/ScreenShots/R1ProducerV1SendMessage.PNG)
 
 # 9. Results
-This is the final output, complete with a message added to the logging data.
+This is the final output, complete with a message added to the logging data for the solo producer.
 
 ![R2ProducerV1SendMessage.PNG](/ScreenShots/R2Producerv1SendMessage.PNG)
 
