@@ -57,10 +57,10 @@ def send_message(host: str, queue_name: str, message: str):
 
     Parameters:
         host (str): the host name or IP address of the RabbitMQ server
-        queue_name_1 (str): the name of the first queue
-        queue_name_2 (str): the name of the second queue
-        queue_name_3 (str): the name of the thrid queue
-        message (tuple): the message to be sent to the queue
+        smoker_queue (str): the name of the first queue
+        foodA_queue (str): the name of the second queue
+        foodB_queue (str): the name of the thrid queue
+        message (str): the message to be sent to the queue
     """
     try:
         """Connect to RabbitMQ Server, return the connection and channel.
@@ -87,13 +87,15 @@ def send_message(host: str, queue_name: str, message: str):
         # publish to a queue:
         ch.basic_publish(exchange= "", routing_key=queue_name, body =message)
         # Exception handling should something go wrong.
+    except KeyboardInterrupt:
+         logger.info("KeyboardInterrupt. Stopping the program.")
     except pika.exceptions.AMQPConnectionError as e:
         print(f"Error: Connection to RabbitMQ server failed: {e}")
         logger.error(f"Error: Connection to RabbitMQ server failed: {e}")
         sys.exit(1)
     finally:
         # close the connection to the server
-        conn.close()    
+        conn.close()   
 
 
 def main(host: str, input_file: str):
@@ -104,7 +106,7 @@ def main(host: str, input_file: str):
 
         Parameters:
         host (str): The host name or IP address of the RabbitMQ server
-        file_name (str): the location of the input file.
+        input_file_name (str): the location of the input file.
 
         Comments above the code are reffering to the code in the next line and its function.
         """
@@ -122,28 +124,26 @@ try:
                 # Splits time into date and time columns
                 date_split, time_split = timestamp.split(' ')
 
-                # Created for smoker_temp, using struct.pack which encodes the data as a binary output
-                
+                # Created for smoker_temp, using encode which encodes the data as a binary output
                 if smoker_temp:
                     smoker_temp = float(smoker_temp)
                     # Using an f string to send data with timestamp
                     message = (f"{smoker_queue} Reading = Date: {date_split}, Time: {time_split}; temp: {smoker_temp} deg F.").encode()
-                    
                     send_message(host, "01-smoker", message)
                     # Prepare a binary message to stream:
-                    logger.info(f"[x] sent {smoker_temp} at {timestamp} to {smoker_queue}")
+                    logger.info(f"[x] sent {smoker_temp} at {timestamp} to {smoker_queue}, {message}")
                 # Created message for food_A_temp
                 if food_A_temp:
                      food_A_temp = float(food_A_temp)
                      message = (f"{foodA_queue} Reading = Date: {date_split}, Time: {time_split}; temp: {food_A_temp} deg F.").encode()
                      send_message(host, "02-food-A", message)
-                     logger.info(f"[x] sent {food_A_temp} at {timestamp} to {foodA_queue}")
+                     logger.info(f"[x] sent {food_A_temp} at {timestamp} to {foodA_queue}, {message}")
                 # Created a message for food_B_temp
                 if food_B_temp:
                     food_B_temp = float(food_B_temp)
                     message = (f"{foodB_queue} Reading = Date: {date_split}, Time: {time_split}; temp: {food_A_temp} deg F.").encode()
                     send_message(host, "03-food-B", message)
-                    logger.info(f"[x] sent {food_B_temp} at {timestamp} to {foodB_queue}")
+                    logger.info(f"[x] sent {food_B_temp} at {timestamp} to {foodB_queue}, {message}")
 
                 # Set sleep for 30 seconds before reading the next row:
                 time.sleep(30)
@@ -154,7 +154,7 @@ except FileNotFoundError:
 except ValueError as e:
          logger.error(f"An unecpected error has occured: {e}")
          sys.exit(1)  
-
+ 
    
 
 
