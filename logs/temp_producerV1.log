@@ -1,0 +1,60 @@
+2024-05-30 20:25:29,443.temp_producerV1.INFO ==================================================
+2024-05-30 20:25:29,443.temp_producerV1.INFO Today is 2024-05-30 at 08:25 PM
+2024-05-30 20:25:29,443.temp_producerV1.INFO Running on: nt Windows 10
+2024-05-30 20:25:29,444.temp_producerV1.INFO Python version:  3.12.3
+2024-05-30 20:25:29,444.temp_producerV1.INFO Python path: C:\Users\Tower\Documents\ACoffinCSIS44671\-streaming-05-smart-smoker\.venv
+2024-05-30 20:25:29,444.temp_producerV1.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\-streaming-05-smart-smoker
+2024-05-30 20:25:29,445.temp_producerV1.INFO ==================================================
+2024-05-30 20:25:29,578.temp_producerV1.INFO [x] sent 84.2 at 5/22/2021 12:20 to 01-smoker
+2024-05-30 20:25:59,676.temp_producerV1.INFO [x] sent 84.2 at 5/22/2021 12:20 to 01-smoker
+2024-05-30 20:26:29,800.temp_producerV1.INFO [x] sent 87.6 at 5/22/2021 12:21 to 01-smoker
+2024-05-30 20:26:59,895.temp_producerV1.INFO [x] sent 87.6 at 5/22/2021 12:21 to 01-smoker
+2024-05-30 20:27:29,973.temp_producerV1.INFO [x] sent 86.3 at 5/22/2021 12:22 to 01-smoker
+2024-05-30 20:28:00,083.temp_producerV1.INFO [x] sent 86.3 at 5/22/2021 12:22 to 01-smoker
+2024-05-30 20:28:30,530.temp_producerV1.INFO [x] sent 92.0 at 5/22/2021 12:23 to 01-smoker
+2024-05-30 20:29:00,639.temp_producerV1.INFO [x] sent 92.0 at 5/22/2021 12:23 to 01-smoker
+2024-05-30 20:29:30,743.temp_producerV1.INFO [x] sent 96.8 at 5/22/2021 12:24 to 01-smoker
+2024-05-30 20:30:00,889.temp_producerV1.INFO [x] sent 96.8 at 5/22/2021 12:24 to 01-smoker
+2024-05-30 20:30:31,054.temp_producerV1.INFO [x] sent 100.6 at 5/22/2021 12:25 to 01-smoker
+2024-05-30 20:31:01,147.temp_producerV1.INFO [x] sent 100.9 at 5/22/2021 12:25 to 01-smoker
+2024-05-30 20:31:31,283.temp_producerV1.INFO [x] sent 100.9 at 5/22/2021 12:25 to 01-smoker
+2024-05-30 20:32:01,362.temp_producerV1.INFO [x] sent 104.8 at 5/22/2021 12:26 to 01-smoker
+2024-05-30 20:32:31,408.temp_producerV1.INFO [x] sent 104.8 at 5/22/2021 12:26 to 01-smoker
+2024-05-30 20:33:01,469.temp_producerV1.INFO [x] sent 108.2 at 5/22/2021 12:27 to 01-smoker
+2024-05-30 20:33:31,663.temp_producerV1.INFO [x] sent 108.2 at 5/22/2021 12:27 to 01-smoker
+2024-05-30 20:34:01,838.temp_producerV1.INFO [x] sent 111.4 at 5/22/2021 12:28 to 01-smoker
+2024-05-30 20:34:31,993.temp_producerV1.INFO [x] sent 111.4 at 5/22/2021 12:28 to 01-smoker
+2024-05-30 20:35:02,076.temp_producerV1.INFO [x] sent 114.2 at 5/22/2021 12:29 to 01-smoker
+2024-05-30 20:35:32,190.temp_producerV1.INFO [x] sent 114.2 at 5/22/2021 12:29 to 01-smoker
+2024-05-30 20:36:02,361.temp_producerV1.INFO [x] sent 116.9 at 5/22/2021 12:30 to 01-smoker
+2024-05-30 20:36:32,510.temp_producerV1.INFO [x] sent 116.9 at 5/22/2021 12:30 to 01-smoker
+2024-05-30 20:37:02,590.temp_producerV1.INFO [x] sent 119.4 at 5/22/2021 12:31 to 01-smoker
+2024-05-30 20:37:32,679.temp_producerV1.INFO [x] sent 119.4 at 5/22/2021 12:31 to 01-smoker
+2024-05-30 20:38:02,774.temp_producerV1.INFO [x] sent 120.1 at 5/22/2021 12:32 to 01-smoker
+2024-05-30 20:38:32,863.temp_producerV1.INFO [x] sent 120.1 at 5/22/2021 12:32 to 01-smoker
+2024-05-30 20:39:02,944.temp_producerV1.INFO [x] sent 106.2 at 5/22/2021 12:33 to 01-smoker
+2024-05-30 20:39:33,026.temp_producerV1.INFO [x] sent 106.2 at 5/22/2021 12:33 to 01-smoker
+2024-05-30 20:40:03,156.temp_producerV1.INFO [x] sent 103.5 at 5/22/2021 12:34 to 01-smoker
+2024-05-30 20:40:33,216.temp_producerV1.INFO [x] sent 103.5 at 5/22/2021 12:34 to 01-smoker
+2024-05-30 20:41:03,368.temp_producerV1.INFO [x] sent 105.3 at 5/22/2021 12:35 to 01-smoker
+2024-05-30 20:41:33,461.temp_producerV1.INFO [x] sent 105.3 at 5/22/2021 12:35 to 01-smoker
+2024-05-30 20:42:03,561.temp_producerV1.INFO [x] sent 106.9 at 5/22/2021 12:36 to 01-smoker
+2024-05-30 20:42:33,649.temp_producerV1.INFO [x] sent 106.9 at 5/22/2021 12:36 to 01-smoker
+2024-05-30 20:43:03,841.temp_producerV1.INFO [x] sent 111.9 at 5/22/2021 12:37 to 01-smoker
+2024-05-30 20:43:33,912.temp_producerV1.INFO [x] sent 111.9 at 5/22/2021 12:37 to 01-smoker
+2024-05-30 20:44:03,965.temp_producerV1.INFO [x] sent 114.2 at 5/22/2021 12:38 to 01-smoker
+2024-05-30 20:44:34,036.temp_producerV1.INFO [x] sent 114.2 at 5/22/2021 12:38 to 01-smoker
+2024-05-30 20:45:04,120.temp_producerV1.INFO [x] sent 115.5 at 5/22/2021 12:39 to 01-smoker
+2024-05-30 20:45:34,201.temp_producerV1.INFO [x] sent 115.5 at 5/22/2021 12:39 to 01-smoker
+2024-05-30 20:46:04,264.temp_producerV1.INFO [x] sent 112.6 at 5/22/2021 12:40 to 01-smoker
+2024-05-30 20:46:34,402.temp_producerV1.INFO [x] sent 112.6 at 5/22/2021 12:40 to 01-smoker
+2024-05-30 20:47:04,447.temp_producerV1.INFO [x] sent 118.8 at 5/22/2021 12:41 to 01-smoker
+2024-05-30 20:47:34,597.temp_producerV1.INFO [x] sent 118.8 at 5/22/2021 12:41 to 01-smoker
+2024-05-30 20:48:05,264.temp_producerV1.INFO [x] sent 113.2 at 5/22/2021 12:42 to 01-smoker
+2024-05-30 20:48:35,356.temp_producerV1.INFO [x] sent 113.2 at 5/22/2021 12:42 to 01-smoker
+2024-05-30 20:49:05,460.temp_producerV1.INFO [x] sent 126.7 at 5/22/2021 12:43 to 01-smoker
+2024-05-30 20:49:35,554.temp_producerV1.INFO [x] sent 126.7 at 5/22/2021 12:43 to 01-smoker
+2024-05-30 20:50:05,651.temp_producerV1.INFO [x] sent 130.0 at 5/22/2021 12:44 to 01-smoker
+2024-05-30 20:50:35,740.temp_producerV1.INFO [x] sent 130.0 at 5/22/2021 12:44 to 01-smoker
+2024-05-30 20:51:06,710.temp_producerV1.INFO [x] sent 130.0 at 5/22/2021 12:45 to 01-smoker
+2024-05-30 20:51:36,822.temp_producerV1.INFO [x] sent 130.0 at 5/22/2021 12:45 to 01-smoker

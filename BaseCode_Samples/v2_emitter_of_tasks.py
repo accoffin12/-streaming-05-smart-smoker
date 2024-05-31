@@ -1,6 +1,6 @@
 """
-    Sample of v3 emitter from M4 repo, to serve as base for developement of smoker producer.
-    Included as a guide in developing the script. The one is designed to emit multiple messages to multiple Consumers.
+    Sample of v2 emitter from M4 repo, to serve as base for developement of smoker producer.
+    Included as a guide in developing the script. The one is designed to emit a single message to multiple Consumers.
 
     Added by: A. C. Coffin
     Date 26 May 2024
@@ -18,14 +18,11 @@
 import pika
 import sys
 import webbrowser
-import csv
 
 from utils.util_logger import setup_logger
 
 # Configuring the Logger:
 logger, logname = setup_logger(__file__)
-
-
 
 
 # Define Program functions
@@ -75,17 +72,6 @@ def send_message(host: str, queue_name: str, message: str):
         # close the connection to the server
         conn.close()
 
-# Function to read in the CSV file tasks.csv
-# Placed after initial set up of the stream because we are instructing RabbitMQ to open a host monitor.
-def read_send_tasks(file_path: str, host: str, queue_name:str):
-    with open(input_file_name, "r") as input_file:
-        reader=csv.reader(input_file, delimiter=",")
-        for row in reader:
-            message = " ".join(row)
-
-            send_message(host, queue_name, message)
-
-
 # Standard Python idiom to indicate main program entry point
 # This allows us to import this module and use its functions
 # without executing the code below.
@@ -97,17 +83,6 @@ if __name__ == "__main__":
     # if no arguments are provided, use the default message
     # use the join method to convert the list of arguments into a string
     # join by the space character inside the quotes
-    #message = " ".join(sys.argv[1:]) or "Second task....."
-
-    #------------------------------------------------------------------------#
-    # Modifications to send message
-
-    host = "localhost"
-    queue_name = "task_queue3"
-    # Input File Name:
-    input_file_name = "tasks.csv"
+    message = " ".join(sys.argv[1:]) or "Second task....."
     # send the message to the queue
-    #send_message("localhost","task_queue2",message)
-
-    # Modified for function written
-    read_send_tasks(input_file_name, host, queue_name)
+    send_message("localhost","task_queue2",message)
