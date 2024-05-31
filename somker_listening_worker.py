@@ -1,6 +1,5 @@
 """
-Works well, recieved message 2 - AC  
-Added logger.  
+*** UNDER DEVELOPEMENT ****
 
     This program listens for work messages contiously. 
     Start multiple versions to add more workers.  
