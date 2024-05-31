@@ -48,7 +48,7 @@ def offer_rabbitmq_admin_site():
     if ans.lower() == "y":
         webbrowser.open_new("http://localhost:15672/#/queues")
         print()
-        logger.info()
+
 
 
 def send_message(host: str, queue_name: str, message: str):
