@@ -160,7 +160,7 @@ A time and date split was performed as the data could not be transformed into a 
 Another exception handler was added in case the CSV file could not be found, or there was a value error. 
 
 # 8. Running Producer
-To run the Producer open a terminal in VS Code, in this case we won't have to worry about a Consumer, so don't panic when we only see the print messages. 
+To run the Producer open a terminal in VS Code, in this case we won't have to worry about a Consumer, so don't panic when we only see the print messages. **Before Running Producer, make sure RabbitMQ is running, it will not work if it isn't.**
 
 Once in the terminal type command:
 `python temp_producerV1.py`
