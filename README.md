@@ -62,7 +62,7 @@ This project was completed using a Windows OS computer with the following specs.
 3. View / Command Palette - then Python: Select Interpreter
 4. Select your conda environment.
 
-# 5. Creating Enviroment & Installs
+# 5. Creating Environment & Installs
 To create a local Python virtual environment to isolate our project's third-party dependencies from other projects. Use the following commands to create an environment, when prompted in VS Code set the .venv to a workspace folder and select yes.
 
 ```
@@ -94,13 +94,13 @@ smoker-temps.csv has 4 columns:
 * The primary difference should be going from 1 to 3 queue_names and from 1 to 3 callbacks. 
 * Part of the challenge is to implement analytics using the tools and approach provided (don't significantly refactor the codebase during your first week of work!) 
 * AFTER earning credit for the assignment, THEN create and share additional custom projects. 
-It's important to note that this project only developes a Producer, which means that we will be hevaily relying on the RabbitMQ Admin Panel and logs. The logs for this project have been included in the repository as a way to show that the message is being sent to the queue. 
+It's important to note that this project only develops a Producer, we will be heavily relying on the RabbitMQ Admin Panel and logs. The logs for this project have been included in the repository to show that the message is being sent to the queue. 
 
 # 7. Developing Producer
-The Producer for this project is based on a Base Code provided by Dr. Case called v2_emitter_of_tasks from the streaming-04-multiple-consumers. Samples of the v2_emitter_of_tasks.py can be found in the BaseCode_Samples folder, as well as two variations on a Consumer. The entire base code was kept, with some sections modified to meet the requriements of the assignment. The original code included a path to the RabbitMQ Admin Website seen in lines 44 to 51. 
+The Producer for this project is based on a Base Code provided by Dr. Case called v2_emitter_of_tasks from the streaming-04-multiple-consumers. Samples of the v2_emitter_of_tasks.py can be found in the BaseCode_Samples folder and two variations on a Consumer. The entire base code was kept, with some sections modified to meet the assignment requirements. The original code included a path to the RabbitMQ Admin Website in lines 44 to 51. 
 
 ## 7a. send_message Function
-The focus of this particular Producer was developing a Producer that would stream data to 3 seperate queues, smoker_queue, foodA_queue, foodB_queue. In order to do this the variables were declared upfront. There were complications when the variables were placed under the entry point, so they were moved to the top under the Imported Libraries. 
+This particular Producer focused on developing a Producer that would stream data to 3 separate queues, smoker_queue, foodA_queue, and foodB_queue. To do this the variables were declared upfront. There were complications when the variables were placed under the entry point, so they were moved to the top under the Imported Libraries. 
 
 ```
 # Declaring variables:
@@ -111,7 +111,7 @@ foodA_queue = "02-food-A"
 foodB_queue = "03-food-B"
 ```
 
-With each of the three queues, an emphasis was placed on making them durable if RabbitMQ crashed, but also addressed the issue of messages accumulating without a consumer to retrieve them. This was done by using `queue_delete` prior to `queue_declare`. 
+With each of the three queues, an emphasis was placed on making them durable if RabbitMQ crashed but also addressed the issue of messages accumulating without a consumer to retrieve them. This was done by using `queue_delete` prior to `queue_declare`. 
 
 ```
 # Delete existing queues and declares them anew to clear previous queue information.
@@ -128,7 +128,7 @@ With each of the three queues, an emphasis was placed on making them durable if 
         ch.queue_declare(foodA_queue, durable=True)
         ch.queue_declare(foodB_queue, durable=True)
 ```
-We set the messages to publish to a specific exchange, routing_key and message. Once established error handling was added, in case the connection to the server either failed, or couldn't be established. Finally we designed the script ot close when the stream of data was complete. This proccess can take a very long time, so an exceptionw was added for a keyboard escape:
+We set the messages to publish to a specific exchange, routing_key, and message. Once established error handling was added, in case the connection to the server either failed or couldn't be established. Finally, we designed the script to close when the stream of data was complete. This process can take a very long time, so an exception was added for a keyboard escape:
 
 ```
 except KeyboardInterrupt:
@@ -136,9 +136,9 @@ except KeyboardInterrupt:
 ```
 
 ## 7b. main function
-This portion was designed to open a CSV and iterate through each of the rows based on the column infromation to the corresponding queue. There are a total of 4 columns in the CSV, however only 3 need queues of their own. 
+This portion was designed to open a CSV and iterate through each of the rows based on the column information to the corresponding queue. There are a total of 4 columns in the CSV, however only 3 need queues of their own. 
 
-When creating the read function, it is important to note that we utilize row numbers in correspondence with the information in each row.
+When creating the read function, we use row numbers to correspond with each row's information.
 
 ```
 for row in reader:
@@ -147,7 +147,8 @@ for row in reader:
                 food_A_temp = row[2]
                 food_B_temp = row[3]
 ```
-A time and date split was performed as the data could not be transformed into a Unix format, it did not contain seconds which is required to use this format. Next each of the three queues were given specific messages to recieve. Each message contains the following information and a logger to track the message.
+
+A time and date split was performed as the data could not be transformed into a Unix format, it did not contain seconds required to use this format. Next, each of the three queues was given specific messages to receive. Each message contains the following information and a logger to track the message.
 
 ```
  # Created for smoker_temp, using encode which encodes the data as a binary output
@@ -157,10 +158,10 @@ A time and date split was performed as the data could not be transformed into a 
                     message = (f"{smoker_queue} Reading = Date: {date_split}, Time: {time_split}; temp: {smoker_temp} deg F.").encode()
                     send_message(host, "01-smoker", message)
 ```
-Another exception handler was added in case the CSV file could not be found, or there was a value error. 
+Another exception handler was added in case the CSV file could not be found, or there was a value error. The CSV file does contain a Header Row, this was handled within the code. If we were to call float("Channel1") in the beginning, which is not a float value, without skipping the header we would receive an error stating that the input was not the expected data type. So with this particular code, the line was skipped in the reader using `header = next(reader)`. 
 
 # 8. Running Producer
-To run the Producer open a terminal in VS Code, in this case we won't have to worry about a Consumer, so don't panic when we only see the print messages. **Before Running Producer, make sure RabbitMQ is running, it will not work if it isn't.**
+To run the Producer open a terminal in VS Code, in this case, we won't have to worry about a Consumer, so don't panic when we only see the print messages. **Before Running Producer, make sure RabbitMQ is running, it will not work if it isn't.**
 
 Once in the terminal type command:
 `python temp_producerV1.py`
@@ -171,16 +172,25 @@ Once active, it will inquire as to if you want to open RabbitMQ's Admin Panel, a
 
 After the question is answered the script will run. Watch the terminal carefully, you should see the log message for each of the three columns flash through eventually. The sleep time was set to 30 seconds so it may take some time to run through the entire CSV. 
 
-The terminal when running should look like this prior to adding the variable messages to each of the logging statements. 
+The terminal when running should look like this before adding the variable messages to each of the logging statements. 
 ![R1ProducerV1SendMessages.PNG](/ScreenShots/R1ProducerV1SendMessage.PNG)
 
 # 9. Results
-This is the final output, complete with message added to the logging data.
+This is the final output, complete with a message added to the logging data.
 
 ![R2ProducerV1SendMessage.PNG](/ScreenShots/R2Producerv1SendMessage.PNG)
 
 1 = Producer Code Being Run,
 2 = Activer Terminal Processing Data,
 3 = Log 
+
 # 10. References
+Module 5.1: Guided Producer Design: [https://nwmissouri.instructure.com/courses/60464/pages/module-5-dot-1-guided-producer-design?wrap=1](https://nwmissouri.instructure.com/courses/60464/pages/module-5-dot-1-guided-producer-design?wrap=1)
+
+Module 5.2: Guided Producer Implementation: [https://nwmissouri.instructure.com/courses/60464/pages/module-5-dot-2-guided-producer-implementation?wrap=1](https://nwmissouri.instructure.com/courses/60464/pages/module-5-dot-2-guided-producer-implementation?wrap=1)
+
+streaming-04-multiple-consumers by Dr. Case [https://github.com/denisecase/streaming-04-multiple-consumers](https://github.com/denisecase/streaming-04-multiple-consumers)
+
+
+
 
