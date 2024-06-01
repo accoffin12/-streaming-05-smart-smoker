@@ -11,50 +11,16 @@ This Repo was added to on 31 May 2024 to contain three seperate Consumers that w
 ![R3ProducerV1SendMessage.PNG](/ScreenShots/R3ProducerV1SendMessage.PNG)
 
 # Table of Contents
-1. [File List](File_List)
-2. [Machine Specs & Terminal Information](Machine_Specs_&_Terminal_Information)
-3. [Prerequisites](Prerequisites)
-4. [Before you Begin](Before_you_Begin)
-5. [Creating Enviroment & Installs](Creating_Enviroment_&_Installs)
-6. [Data & Project Specifics](Data_&_Project_Specifics)
-7. [Developing Producer](Developing_Producer)
-8. [Developing Consumer](Developing_Consumer)
-9. [Running Producer/Consumer](Running_Producer/Consumer)
-10. [Results](Results)
-11. [References](References)
+1. [Prerequisites](Prerequisites)
+2. [Before you Begin](Before_you_Begin)
+3. [Creating Enviroment & Installs](Creating_Enviroment_&_Installs)
+4. [Data & Project Specifics](Data_&_Project_Specifics)
+5. [Developing Producer](Developing_Producer)
+6. [Running Producer/Consumer](Running_Producer/Consumer)
+7. [Results](Results)
+8. [References](References)
 
-# 1. File List
-| File Name | Repo Location | File Type |
-| ----- | ----- | ----- |
-| util_about.py | utils folder | python script |
-| util_aboutenv.py | utils folder | python script |
-| util_logger.py | utils folder | python script |
-| aboutenv.txt | util_outputs | text |
-| util_about.tst | util_outputs | text |
-| Data_smoker-temps.csv | main repo | csv |
-| requirements.txt | main repo | text |
-| v2_emitter_of_tasks.py | BaseCode_Samples folder | python script |
-| v2_listening_worker.py | BaseCode_Samples folder | python script |
-| v3_listenin_worker.py | BaseCode_Samples folder | python script | 
-| temp_producerV1.py | main repo | python script |
-| R1ProducerV1SendMessage.PNG | ScreenShots folder | PNG |
-| R2Producerv1SendMessage.PNG | ScreenShots folder | PNG |
-| RabbitMQDashProducerV1.PNG | ScreenShots folder | PNG |
-
-# 2. Machine Specs & Terminal Information
-This project was completed using a Windows OS computer with the following specs. These are not required to run this repository. For further details see util_about.txt and aboutenv.txt in the utils_outputs located in the utils folder.
-* Date and Time: 2024-05-26 at 02:13 PM
-* Operating System: nt Windows 10
-* System Architecture: 64bit
-* Number of CPUs: 12
-* Machine Type: AMD64
-* Python Version: 3.12.3
-* Python Build Date and Compiler: main with Apr 15 2024 18:20:11
-* Python Implementation: CPython
-* Terminal Environment:        VS Code
-* Terminal Type:               cmd.exe
-* Preferred command:           python
-# 3. Prerequisites
+# 1. Prerequisites
 1. Git
 2. Python 3.7+ (3.11+ preferred)
 3. VS Code Editor
@@ -62,13 +28,13 @@ This project was completed using a Windows OS computer with the following specs.
 5. RabbitMQ Server Installed and Running Locally
 6. Anaconda Installed
 
-# 4. Before you Begin
+# 2. Before you Begin
 1. Fork this starter repo into your GitHub.
 2. Clone your repo down to your machine.
 3. View / Command Palette - then Python: Select Interpreter
 4. Select your conda environment.
 
-# 5. Creating Environment & Installs
+# 3. Creating Environment & Installs
 To create a local Python virtual environment to isolate our project's third-party dependencies from other projects. Use the following commands to create an environment, when prompted in VS Code set the .venv to a workspace folder and select yes.
 
 ```
@@ -80,7 +46,7 @@ Once the environment is created install the following:
 python -m pip install -r requirements.txt
 ```
 
-# 6. Data & Project Specifics
+# 4. Data & Project Specifics
 The Data was provided by NW Missouri State University as part of the Module 5 Assignment by Dr. Case. The specific requirements for the module are as follows:
 
 We want to stream information from a smart smoker. Read one value every half minute. (sleep_secs = 30)
@@ -91,7 +57,7 @@ smoker-temps.csv has 4 columns:
 [1] Channel1 = Smoker Temp --> send to message queue "01-smoker"
 [2] Channel2 = Food A Temp --> send to message queue "02-food-A"
 [3] Channel3 = Food B Temp --> send to message queue "03-food-B"
-## 6a. Required Approach
+## 4a. Required Approach
 * Use your Module 4 projects (Version 2 and Version 3) as examples.
 * Remember: No prior coding experience is required to take this course. Rely heavily on the working examples from earlier modules. 
 * The more similar your code looks to the examples - the more credit earned.
@@ -102,12 +68,14 @@ smoker-temps.csv has 4 columns:
 * AFTER earning credit for the assignment, THEN create and share additional custom projects. 
 It's important to note that this project only develops a Producer, we will be heavily relying on the RabbitMQ Admin Panel and logs. The logs for this project have been included in the repository to show that the message is being sent to the queue. 
 
-# 7. Developing Producer/Consumer
+# 5. Developing Producer/Consumer
+There are two Producers in this Repository. The first was created to run through the process of creating a producer for a smoker. The second was streamlined based on the needs of the consumer being developed for Module 6. 
+
 The Producer for this project is based on a Base Code provided by Dr. Case called v2_emitter_of_tasks from the streaming-04-multiple-consumers. Samples of the v2_emitter_of_tasks.py can be found in the BaseCode_Samples folder and two variations on a Consumer. The entire base code was kept, with some sections modified to meet the assignment requirements. The original code included a path to the RabbitMQ Admin Website in lines 44 to 51. 
 
 The same can be said for the consumer which also utilizes a variation of the v2_listening_worker.py found in streaming-04-multiple-consumers written by Dr. Case. A sample has been included in the folder BaseCode_Samples.
 
-## 7a. Producer: send_message Function
+## 5a. ProducerV1: send_message Function
 This particular Producer focused on developing a Producer that would stream data to 3 separate queues, smoker_queue, foodA_queue, and foodB_queue. To do this the variables were declared upfront. There were complications when the variables were placed under the entry point, so they were moved to the top under the Imported Libraries. 
 
 ```
@@ -143,7 +111,7 @@ except KeyboardInterrupt:
          logger.info("KeyboardInterrupt. Stopping the program.")
 ```
 
-## 7b. Producer: main function
+## 5b. ProducerV1: main function
 This portion was designed to open a CSV and iterate through each of the rows based on the column information to the corresponding queue. There are a total of 4 columns in the CSV, however only 3 need queues of their own. 
 
 When creating the read function, we use row numbers to correspond with each row's information.
@@ -168,7 +136,21 @@ A time and date split was performed as the data could not be transformed into a 
 ```
 Another exception handler was added in case the CSV file could not be found, or there was a value error. The CSV file does contain a Header Row, this was handled within the code. If we were to call float("Channel1") in the beginning, which is not a float value, without skipping the header we would receive an error stating that the input was not the expected data type. So with this particular code, the line was skipped in the reader using `header = next(reader)`. 
 
-# 8. Running Producer/Consumer
+## 5c. Producer V2:
+This variation of the producer is more streamlined and closer to the original guidelines provided. Rather than creating each of the queues independently they are all created based on a list that instructs the code to iterate each as an individual. By doing this it reduces the line size and makes creation and deletion of queues simpler.
+```
+queues = ["01-smoker", "02-food-A", "03-food-B"]
+        for queue_name in queues:
+             ch.queue_delete(queue=queue_name)
+             ch.queue_declare(queue=queue_name, durable=True)
+             return conn, ch
+```
+
+Another section that changed was that the main and send_messages functions have been flipped, this was to facilitate ease when reading the script. The top function, main creates the connection to the server and establishes the queues. This section also reads the CSV file and similar to the original variation dictates what to do with the information. However in this case rather than the long string message, a tuple is produced and sent to the queue. This simplicification will make the process quicker and make creating a Consumer easier.
+
+Finally the last section which sends the message has been modified to publish the message to the queue. 
+
+# 6. Running Producer/Consumer
 To run the Producer open a terminal in VS Code, in this case, we won't have to worry about a Consumer, so don't panic when we only see the print messages. **Before Running Producer, make sure RabbitMQ is running, it will not work if it isn't.**
 
 Once in the terminal type command:
@@ -183,7 +165,7 @@ After the question is answered the script will run. Watch the terminal carefully
 The terminal when running should look like this before adding the variable messages to each of the logging statements. 
 ![R1ProducerV1SendMessages.PNG](/ScreenShots/R1ProducerV1SendMessage.PNG)
 
-# 9. Results
+# 7. Results
 This is the final output, complete with a message added to the logging data for the solo producer.
 
 ![R2ProducerV1SendMessage.PNG](/ScreenShots/R2Producerv1SendMessage.PNG)
@@ -192,7 +174,7 @@ This is the final output, complete with a message added to the logging data for 
 2 = Activer Terminal Processing Data,
 3 = Log 
 
-# 10. References
+# 8. References
 Module 5.1: Guided Producer Design: [https://nwmissouri.instructure.com/courses/60464/pages/module-5-dot-1-guided-producer-design?wrap=1](https://nwmissouri.instructure.com/courses/60464/pages/module-5-dot-1-guided-producer-design?wrap=1)
 
 Module 5.2: Guided Producer Implementation: [https://nwmissouri.instructure.com/courses/60464/pages/module-5-dot-2-guided-producer-implementation?wrap=1](https://nwmissouri.instructure.com/courses/60464/pages/module-5-dot-2-guided-producer-implementation?wrap=1)
