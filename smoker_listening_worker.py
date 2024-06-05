@@ -30,8 +30,8 @@ logger, logname = setup_logger(__file__)
 # 5/2 = 2.5 minute window
 smoker_deque = deque(maxlen = 5)
 # 20/2 = 10 minute window
-foodA_deque = deque(maxlen = 20)
-foodB_deque = deque(maxlen = 20)
+#foodA_deque = deque(maxlen = 20)
+#foodB_deque = deque(maxlen = 20)
 
 # Define a function to calculate the different between values at the beginning and end of a window.
 # Allowing us to examine the change in value over time, this is recieved from a collection.
@@ -74,33 +74,15 @@ def smoker_callback(ch, method, properties, body):
                     * INCREASE TEMPEATURE IMEDIATLY.
                     ***************************************\n''')
         
-        # Add completed task to log:
-        logger.info("[x] Done: 01-smoker reading")
-        # acknowledge the message was received and processed 
-        # (now it can be deleted from the queue)
-        ch.basic_ack(delivery_tag=method.delivery_tag)
-
-
-# define a callback function to be called when a message is received
-def on_message_callback(ch, method, properties, body):
-    """ 
-    Define behavior on getting a message from the queues.
-    This process involves unpacking the encoded string from the Producer and logging the action.
-    """
-    # decode the binary message body to a string
-    print(f" [x] Received {body.decode()}")
-    # simulate work by sleeping for the number of dots in the message
-    time.sleep(body.count(b"."))
-    # when done with task, tell the user
-    print(" [x] Done.")
-    logger.info(" [x] Done.")
+    # Add completed task to log:
+    logger.info("[x] Done: 01-smoker reading")
     # acknowledge the message was received and processed 
     # (now it can be deleted from the queue)
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 
 # define a main function to run the program
-def main(hn: str, queue_name: str):
+def main(hn: str):
     """ Continuously listen for task messages on a named queue."""
 
     # when a statement can go wrong, use a try-except block
