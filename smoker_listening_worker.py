@@ -1,17 +1,11 @@
 import pika
 import sys
-from datetime import datetime
-import pika.exceptions
-from utils.util_logger import setup_logger
 import time
-import struct
+from utils.util_logger import setup_logger
 
 # Configuring the Logger:
 logger, logname = setup_logger(__file__)
 
-# Variables:
-host = 'localhost'
-smoker_queue = '01-smoker'
 
 # Define Program functions
 #--------------------------------------------------------------------------
@@ -21,26 +15,25 @@ def callback(ch, method, properties, body):
     """ Define behavior on getting a message."""
     # decode the binary message body to a string
     print(f" [x] Received {body.decode()}")
-    #logger.info(f'[01-smoker Reading]: {timestamp_str}: {temp} deg. F')
-    #print(f" [x] Received [01-smoker Reading]: {timestamp_str}: {temp} deg. F")
+    logger.info(f"[x] Received: {body.decode()}")
     
     # when done with task, tell the user
-    print(" [x] Done with 01-smoker reading.")
-    logger.info(" [x] Done with 01-smoker reading.")
+    print(" [x] Done.")
+    logger.info(" [x] Done.")
     # acknowledge the message was received and processed 
     # (now it can be deleted from the queue)
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 
 # define a main function to run the program
-def main(hn: str = "localhost", qn: str = '01-smoker'):
+def main(hn: str = "localhost", qn: str = "01-smoker"):
     """ Continuously listen for task messages on a named queue."""
 
     # when a statement can go wrong, use a try-except block
     try:
         # try this code, if it works, keep going
         # create a blocking connection to the RabbitMQ server
-        conn = pika.BlockingConnection(pika.ConnectionParameters(host=hn))
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host=hn))
 
     # except, if there's an error, do this
     except Exception as e:
@@ -54,14 +47,13 @@ def main(hn: str = "localhost", qn: str = '01-smoker'):
 
     try:
         # use the connection to create a communication channel
-        ch = conn.channel()
+        channel = connection.channel()
 
         # use the channel to declare a durable queue
         # a durable queue will survive a RabbitMQ server restart
         # and help ensure messages are processed in order
         # messages will not be deleted until the consumer acknowledges
-        ch.queue_delete(queue=qn)
-        ch.queue_declare(queue=qn, durable=True)
+        channel.queue_declare(queue=qn, durable=True)
 
         # The QoS level controls the # of messages
         # that can be in-flight (unacknowledged by the consumer)
@@ -71,19 +63,19 @@ def main(hn: str = "localhost", qn: str = '01-smoker'):
         # This helps prevent a worker from becoming overwhelmed
         # and improve the overall system performance. 
         # prefetch_count = Per consumer limit of unaknowledged messages      
-        ch.basic_qos(prefetch_count=1) 
+        channel.basic_qos(prefetch_count=1) 
 
         # configure the channel to listen on a specific queue,  
         # use the callback function named callback,
         # and do not auto-acknowledge the message (let the callback handle it)
-        ch.basic_consume( queue=qn, on_message_callback=callback, auto_ack=False)
+        channel.basic_consume( queue=qn, on_message_callback=callback, auto_ack=False)
 
         # print a message to the console for the user
         print(" [*] Ready for work. To exit press CTRL+C")
         logger.info(" [*] Ready for work. To exit press CTRL+C")
 
         # start consuming messages via the communication channel
-        ch.start_consuming()
+        channel.start_consuming()
 
     # except, in the event of an error OR user stops the process, do this
     except Exception as e:
@@ -100,7 +92,7 @@ def main(hn: str = "localhost", qn: str = '01-smoker'):
     finally:
         print("\nClosing connection. Goodbye.\n")
         logger.info("\nclosing connection. Goodby\n")
-        conn.close()
+        connection.close()
 
 
 # Standard Python idiom to indicate main program entry point
@@ -109,5 +101,4 @@ def main(hn: str = "localhost", qn: str = '01-smoker'):
 # If this is the program being run, then execute the code below
 if __name__ == "__main__":
     # call the main function with the information needed
-    main(host, '01-smoker')
-
+    main("localhost", "01-smoker")
