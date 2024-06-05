@@ -4,7 +4,7 @@
     This program listens for work messages contiously. 
     Start multiple versions to add more workers.  
 
-    Author: Denise Case
+    Author: Alex Coffin
     Date: January 15, 2023
 
 """
