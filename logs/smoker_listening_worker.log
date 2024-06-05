@@ -1,12 +1,12 @@
-2024-06-04 19:38:42,185.smoker_listening_worker.INFO ==================================================
-2024-06-04 19:38:42,186.smoker_listening_worker.INFO Today is 2024-06-04 at 07:38 PM
-2024-06-04 19:38:42,186.smoker_listening_worker.INFO Running on: nt Windows 10
-2024-06-04 19:38:42,186.smoker_listening_worker.INFO Python version:  3.12.3
-2024-06-04 19:38:42,187.smoker_listening_worker.INFO Python path: C:\Users\Tower\Documents\ACoffinCSIS44671\-streaming-05-smart-smoker\.venv
-2024-06-04 19:38:42,187.smoker_listening_worker.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\-streaming-05-smart-smoker
-2024-06-04 19:38:42,187.smoker_listening_worker.INFO ==================================================
-2024-06-04 19:38:42,648.smoker_listening_worker.INFO  [*] Ready for work. To exit press CTRL+C
-2024-06-04 19:39:32,252.smoker_listening_worker.INFO KeyboardInterrupt. Stopping the Program
-2024-06-04 19:39:32,254.smoker_listening_worker.INFO 
+2024-06-05 14:16:03,550.smoker_listening_worker.INFO ==================================================
+2024-06-05 14:16:03,550.smoker_listening_worker.INFO Today is 2024-06-05 at 02:16 PM
+2024-06-05 14:16:03,551.smoker_listening_worker.INFO Running on: nt Windows 10
+2024-06-05 14:16:03,551.smoker_listening_worker.INFO Python version:  3.12.3
+2024-06-05 14:16:03,551.smoker_listening_worker.INFO Python path: C:\Users\Tower\Documents\ACoffinCSIS44671\-streaming-05-smart-smoker\.venv
+2024-06-05 14:16:03,551.smoker_listening_worker.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\-streaming-05-smart-smoker
+2024-06-05 14:16:03,552.smoker_listening_worker.INFO ==================================================
+2024-06-05 14:16:03,618.smoker_listening_worker.INFO  [*] Ready for work. To exit press CTRL+C
+2024-06-05 14:16:38,601.smoker_listening_worker.INFO KeyboardInterrupt. Stopping the Program
+2024-06-05 14:16:38,602.smoker_listening_worker.INFO 
 closing connection. Goodby
 

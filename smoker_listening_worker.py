@@ -1,95 +1,46 @@
-"""
-*** UNDER DEVELOPEMENT ****
-
-    This program listens for work messages contiously. 
-    Start multiple versions to add more workers.  
-
-    Author: Alex Coffin
-    Date: January 15, 2023
-
-"""
-
 import pika
 import sys
-import time
-from utils.util_logger import setup_logger
-import struct
 from datetime import datetime
-from collections import deque
-
+import pika.exceptions
+from utils.util_logger import setup_logger
+import time
+import struct
 
 # Configuring the Logger:
 logger, logname = setup_logger(__file__)
 
+# Variables:
+host = 'localhost'
+smoker_queue = '01-smoker'
 
 # Define Program functions
 #--------------------------------------------------------------------------
 
-# Create deques to hold windows of data for the sensor smoker. 
-# Each reading is 30 secs apart, each deque has maxlen = 2 * windowminutes.
-# 5/2 = 2.5 minute window
-smoker_deque = deque(maxlen = 5)
-# 20/2 = 10 minute window
-#foodA_deque = deque(maxlen = 20)
-#foodB_deque = deque(maxlen = 20)
-
-# Define a function to calculate the different between values at the beginning and end of a window.
-# Allowing us to examine the change in value over time, this is recieved from a collection.
-
-def calculate_window_delta(collection):
-    """
-    Calculates the differences between the last and first items in a collection.
-    Args: collection (list): A list of numerical values, smoker_temps
-    Returns: float: The difference between the last and first items.
-    """
-    return collection[-1] - collection[0]
-
-# define a callback function for each sensor that will be called when message is recieved.
-def smoker_callback(ch, method, properties, body):
-    """ 
-    Define behavior on getting a message from the smoker_queue.
-    This process involves unpacking the encoded string from the Producer and logging the action.
-    It unpacts the struct and decodes the timestamp for the log.
-    The produces an alert for the temperature drop
-    """
-    # Unpacking the struct by the temp_ProducerV2.py
-    # Timestamps for logging ONLY
-    timestamp, temp = struct.unpack('!df', body)
-    # Convert the timestamp back to original:
-    timestamp_str = datetime.fromtimestamp(timestamp).strftime("%m/%d/%y %H:%M:%S")
-    logger.info(f'[01-smoker Reading]: {timestamp_str}: {temp} deg. F')
-    print(f" [x] Received [01-smoker Reading]: {timestamp_str}: {temp} deg. F")
+# define a callback function to be called when a message is received
+def callback(ch, method, properties, body):
+    """ Define behavior on getting a message."""
+    # decode the binary message body to a string
+    print(f" [x] Received {body.decode()}")
+    #logger.info(f'[01-smoker Reading]: {timestamp_str}: {temp} deg. F')
+    #print(f" [x] Received [01-smoker Reading]: {timestamp_str}: {temp} deg. F")
     
-    # Append smoker_deque, new temp:
-    smoker_deque.append(temp)
-    
-    # check if deque is full, check temp for a drop:
-    if len(smoker_deque) == smoker_deque.maxlen:
-        if calculate_window_delta(smoker_deque) <= -15:
-            logger.info( f'''
-                    ************* [ALERT!] ****************
-                    SMOKER TEMP HAS DROPPED 15 deg. F!
-                    * {timestamp_str}
-                    * Current temp: {temp}
-                    * INCREASE TEMPEATURE IMEDIATLY.
-                    ***************************************\n''')
-        
-    # Add completed task to log:
-    logger.info("[x] Done: 01-smoker reading")
+    # when done with task, tell the user
+    print(" [x] Done with 01-smoker reading.")
+    logger.info(" [x] Done with 01-smoker reading.")
     # acknowledge the message was received and processed 
     # (now it can be deleted from the queue)
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 
 # define a main function to run the program
-def main(hn: str):
+def main(hn: str = "localhost", qn: str = '01-smoker'):
     """ Continuously listen for task messages on a named queue."""
 
     # when a statement can go wrong, use a try-except block
     try:
         # try this code, if it works, keep going
         # create a blocking connection to the RabbitMQ server
-        connection = pika.BlockingConnection(pika.ConnectionParameters(host=hn))
+        conn = pika.BlockingConnection(pika.ConnectionParameters(host=hn))
 
     # except, if there's an error, do this
     except Exception as e:
@@ -103,26 +54,29 @@ def main(hn: str):
 
     try:
         # use the connection to create a communication channel
-        ch = connection.channel()
+        ch = conn.channel()
 
-        # Declare queues for each column
-        queues = ["01-smoker", "02-food-A", "03-food-B"]
-        # Delete the queue if it already exists, and then create a new Durable Queue 
-        for queue_name in queues:
-             ch.queue_delete(queue=queue_name)
-             ch.queue_declare(queue=queue_name, durable=True)
+        # use the channel to declare a durable queue
+        # a durable queue will survive a RabbitMQ server restart
+        # and help ensure messages are processed in order
+        # messages will not be deleted until the consumer acknowledges
+        ch.queue_delete(queue=qn)
+        ch.queue_declare(queue=qn, durable=True)
 
+        # The QoS level controls the # of messages
+        # that can be in-flight (unacknowledged by the consumer)
+        # at any given time.
         # Set the prefetch count to one to limit the number of messages
         # being consumed and processed concurrently.
+        # This helps prevent a worker from becoming overwhelmed
+        # and improve the overall system performance. 
         # prefetch_count = Per consumer limit of unaknowledged messages      
         ch.basic_qos(prefetch_count=1) 
 
         # configure the channel to listen on a specific queue,  
         # use the callback function named callback,
         # and do not auto-acknowledge the message (let the callback handle it)
-        ch.basic_consume(queue='01-smoker', on_message_callback=smoker_callback)
-        ch.basic_consume(queue='02-food-A', on_message_callback=foodA_callback)
-        ch.basic_consume(queue='02-food-B', on_message_callback=foodB_callback)
+        ch.basic_consume( queue=qn, on_message_callback=callback, auto_ack=False)
 
         # print a message to the console for the user
         print(" [*] Ready for work. To exit press CTRL+C")
@@ -146,7 +100,7 @@ def main(hn: str):
     finally:
         print("\nClosing connection. Goodbye.\n")
         logger.info("\nclosing connection. Goodby\n")
-        connection.close()
+        conn.close()
 
 
 # Standard Python idiom to indicate main program entry point
@@ -155,5 +109,5 @@ def main(hn: str):
 # If this is the program being run, then execute the code below
 if __name__ == "__main__":
     # call the main function with the information needed
-    host = "localhost"
-    main(host)
+    main(host, '01-smoker')
+

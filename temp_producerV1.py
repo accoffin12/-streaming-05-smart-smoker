@@ -128,20 +128,23 @@ try:
                 if smoker_temp:
                     smoker_temp = float(smoker_temp)
                     # Using an f string to send data with timestamp
-                    message = (f"{smoker_queue} Reading = Date: {date_split}, Time: {time_split}; temp: {smoker_temp} deg F.").encode()
+                    #message = (f"{smoker_queue} Reading = Date: {date_split}, Time: {time_split}; temp: {smoker_temp} deg F.").encode()
+                    message = (date_split, time_split, smoker_temp).encode()
                     send_message(host, "01-smoker", message)
                     # Prepare a binary message to stream:
                     logger.info(f"[x] sent {smoker_temp} at {timestamp} to {smoker_queue}, {message}")
                 # Created message for food_A_temp
                 if food_A_temp:
                      food_A_temp = float(food_A_temp)
-                     message = (f"{foodA_queue} Reading = Date: {date_split}, Time: {time_split}; temp: {food_A_temp} deg F.").encode()
+                     #message = (f"{foodA_queue} Reading = Date: {date_split}, Time: {time_split}; temp: {food_A_temp} deg F.").encode()
+                     message = (date_split, time_split, food_A_temp).encode()
                      send_message(host, "02-food-A", message)
                      logger.info(f"[x] sent {food_A_temp} at {timestamp} to {foodA_queue}, {message}")
                 # Created a message for food_B_temp
                 if food_B_temp:
                     food_B_temp = float(food_B_temp)
-                    message = (f"{foodB_queue} Reading = Date: {date_split}, Time: {time_split}; temp: {food_A_temp} deg F.").encode()
+                    #message = (f"{foodB_queue} Reading = Date: {date_split}, Time: {time_split}; temp: {food_A_temp} deg F.").encode()
+                    message = (date_split, time_split, food_B_temp).encode()
                     send_message(host, "03-food-B", message)
                     logger.info(f"[x] sent {food_B_temp} at {timestamp} to {foodB_queue}, {message}")
 
