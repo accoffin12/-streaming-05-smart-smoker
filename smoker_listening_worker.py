@@ -44,11 +44,47 @@ def calculate_window_delta(collection):
     """
     return collection[-1] - collection[0]
 
+# define a callback function for each sensor that will be called when message is recieved.
+def smoker_callback(ch, method, properties, body):
+    """ 
+    Define behavior on getting a message from the smoker_queue.
+    This process involves unpacking the encoded string from the Producer and logging the action.
+    It unpacts the struct and decodes the timestamp for the log.
+    The produces an alert for the temperature drop
+    """
+    # Unpacking the struct by the temp_ProducerV2.py
+    # Timestamps for logging ONLY
+    timestamp, temp = struct.unpack('!df', body)
+    # Convert the timestamp back to original:
+    timestamp_str = datetime.fromtimestamp(timestamp).strftime("%m/%d/%y %H:%M:%S")
+    logger.info(f'[01-smoker Reading]: {timestamp_str}: {temp} deg. F')
+    print(f" [x] Received [01-smoker Reading]: {timestamp_str}: {temp} deg. F")
+    
+    # Append smoker_deque, new temp:
+    smoker_deque.append(temp)
+    
+    # check if deque is full, check temp for a drop:
+    if len(smoker_deque) == smoker_deque.maxlen:
+        if calculate_window_delta(smoker_deque) <= -15:
+            logger.info( f'''
+                    ************* [ALERT!] ****************
+                    SMOKER TEMP HAS DROPPED 15 deg. F!
+                    * {timestamp_str}
+                    * Current temp: {temp}
+                    * INCREASE TEMPEATURE IMEDIATLY.
+                    ***************************************\n''')
+        
+        # Add completed task to log:
+        logger.info("[x] Done: 01-smoker reading")
+        # acknowledge the message was received and processed 
+        # (now it can be deleted from the queue)
+        ch.basic_ack(delivery_tag=method.delivery_tag)
+
 
 # define a callback function to be called when a message is received
 def on_message_callback(ch, method, properties, body):
     """ 
-    Define behavior on getting a message from the smoker_queue.
+    Define behavior on getting a message from the queues.
     This process involves unpacking the encoded string from the Producer and logging the action.
     """
     # decode the binary message body to a string
