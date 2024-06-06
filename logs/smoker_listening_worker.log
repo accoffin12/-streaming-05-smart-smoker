@@ -1,73 +1,62 @@
-2024-06-05 23:15:55,169.smoker_listening_worker.INFO ==================================================
-2024-06-05 23:15:55,170.smoker_listening_worker.INFO Today is 2024-06-05 at 11:15 PM
-2024-06-05 23:15:55,170.smoker_listening_worker.INFO Running on: nt Windows 10
-2024-06-05 23:15:55,171.smoker_listening_worker.INFO Python version:  3.12.3
-2024-06-05 23:15:55,171.smoker_listening_worker.INFO Python path: C:\Users\Tower\anaconda3\envs\RabbitEnv
-2024-06-05 23:15:55,171.smoker_listening_worker.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\-streaming-05-smart-smoker
-2024-06-05 23:15:55,172.smoker_listening_worker.INFO ==================================================
-2024-06-05 23:15:55,258.smoker_listening_worker.INFO  [*] Ready for work. To exit press CTRL+C
-2024-06-05 23:15:58,888.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:25:20; Smoker is temp: 100.9 deg F.
-2024-06-05 23:16:03,958.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:26:10; Smoker is temp: 104.8 deg F.
-2024-06-05 23:16:09,044.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:26:15; Smoker is temp: 104.8 deg F.
-2024-06-05 23:16:14,284.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:27:10; Smoker is temp: 108.2 deg F.
-2024-06-05 23:16:19,346.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:27:15; Smoker is temp: 108.2 deg F.
-2024-06-05 23:16:24,408.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:28:10; Smoker is temp: 111.4 deg F.
-2024-06-05 23:16:29,462.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:28:15; Smoker is temp: 111.4 deg F.
-2024-06-05 23:16:34,516.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:29:10; Smoker is temp: 114.2 deg F.
-2024-06-05 23:16:39,636.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:29:15; Smoker is temp: 114.2 deg F.
-2024-06-05 23:16:44,705.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:30:10; Smoker is temp: 116.9 deg F.
-2024-06-05 23:16:49,763.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:30:15; Smoker is temp: 116.9 deg F.
-2024-06-05 23:16:54,832.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:31:10; Smoker is temp: 119.4 deg F.
-2024-06-05 23:17:00,117.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:31:15; Smoker is temp: 119.4 deg F.
-2024-06-05 23:17:05,675.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:32:10; Smoker is temp: 120.1 deg F.
-2024-06-05 23:17:10,725.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:32:15; Smoker is temp: 120.1 deg F.
-2024-06-05 23:17:15,795.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:33:10; Smoker is temp: 106.2 deg F.
-2024-06-05 23:17:20,833.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:33:15; Smoker is temp: 106.2 deg F.
-2024-06-05 23:17:26,989.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:34:10; Smoker is temp: 103.5 deg F.
-2024-06-05 23:17:26,991.smoker_listening_worker.INFO * [SMOKER ALERT!] * Temperature has falled by 15 deg F 16.599999999999994
-2024-06-05 23:17:32,278.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:34:15; Smoker is temp: 103.5 deg F.
-2024-06-05 23:17:32,281.smoker_listening_worker.INFO * [SMOKER ALERT!] * Temperature has falled by 15 deg F 16.599999999999994
-2024-06-05 23:17:38,172.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:35:10; Smoker is temp: 105.3 deg F.
-2024-06-05 23:17:43,259.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:35:15; Smoker is temp: 105.3 deg F.
-2024-06-05 23:17:48,309.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:36:10; Smoker is temp: 106.9 deg F.
-2024-06-05 23:17:53,393.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:36:15; Smoker is temp: 106.9 deg F.
-2024-06-05 23:17:58,451.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:37:10; Smoker is temp: 111.9 deg F.
-2024-06-05 23:18:03,531.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:37:15; Smoker is temp: 111.9 deg F.
-2024-06-05 23:18:08,639.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:38:10; Smoker is temp: 114.2 deg F.
-2024-06-05 23:18:13,695.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:38:15; Smoker is temp: 114.2 deg F.
-2024-06-05 23:18:19,651.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:39:10; Smoker is temp: 115.5 deg F.
-2024-06-05 23:18:24,771.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:39:15; Smoker is temp: 115.5 deg F.
-2024-06-05 23:18:29,892.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:40:10; Smoker is temp: 112.6 deg F.
-2024-06-05 23:18:35,068.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:40:15; Smoker is temp: 112.6 deg F.
-2024-06-05 23:18:40,182.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:41:10; Smoker is temp: 118.8 deg F.
-2024-06-05 23:18:45,252.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:41:15; Smoker is temp: 118.8 deg F.
-2024-06-05 23:18:50,343.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:42:10; Smoker is temp: 113.2 deg F.
-2024-06-05 23:18:55,413.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:42:15; Smoker is temp: 113.2 deg F.
-2024-06-05 23:19:00,483.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:43:10; Smoker is temp: 126.7 deg F.
-2024-06-05 23:19:05,552.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:43:15; Smoker is temp: 126.7 deg F.
-2024-06-05 23:19:10,631.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:44:10; Smoker is temp: 130.0 deg F.
-2024-06-05 23:19:15,690.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:44:15; Smoker is temp: 130.0 deg F.
-2024-06-05 23:19:20,748.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:45:10; Smoker is temp: 130.0 deg F.
-2024-06-05 23:19:25,821.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:45:15; Smoker is temp: 130.0 deg F.
-2024-06-05 23:19:30,879.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:46:10; Smoker is temp: 137.3 deg F.
-2024-06-05 23:19:35,938.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:46:15; Smoker is temp: 137.3 deg F.
-2024-06-05 23:19:41,012.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:47:10; Smoker is temp: 139.5 deg F.
-2024-06-05 23:19:46,069.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:47:15; Smoker is temp: 139.5 deg F.
-2024-06-05 23:19:52,201.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:48:10; Smoker is temp: 141.8 deg F.
-2024-06-05 23:19:57,258.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:48:15; Smoker is temp: 141.8 deg F.
-2024-06-05 23:20:02,315.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:49:10; Smoker is temp: 143.6 deg F.
-2024-06-05 23:20:07,433.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:49:15; Smoker is temp: 143.6 deg F.
-2024-06-05 23:20:12,499.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:50:10; Smoker is temp: 145.0 deg F.
-2024-06-05 23:20:17,590.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:50:15; Smoker is temp: 145.0 deg F.
-2024-06-05 23:20:22,727.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:51:10; Smoker is temp: 146.2 deg F.
-2024-06-05 23:20:27,795.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:51:15; Smoker is temp: 146.2 deg F.
-2024-06-05 23:20:32,865.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:52:10; Smoker is temp: 147.5 deg F.
-2024-06-05 23:20:37,935.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:52:15; Smoker is temp: 147.5 deg F.
-2024-06-05 23:20:43,004.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:53:10; Smoker is temp: 148.7 deg F.
-2024-06-05 23:20:48,062.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:53:15; Smoker is temp: 148.7 deg F.
-2024-06-05 23:20:54,487.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:54:10; Smoker is temp: 149.9 deg F.
-2024-06-05 23:20:59,545.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:54:15; Smoker is temp: 149.9 deg F.
-2024-06-05 23:21:04,559.smoker_listening_worker.INFO KeyboardInterrupt. Stopping the Program
-2024-06-05 23:21:04,562.smoker_listening_worker.INFO 
+2024-06-05 23:26:32,127.smoker_listening_worker.INFO ==================================================
+2024-06-05 23:26:32,128.smoker_listening_worker.INFO Today is 2024-06-05 at 11:26 PM
+2024-06-05 23:26:32,130.smoker_listening_worker.INFO Running on: nt Windows 10
+2024-06-05 23:26:32,131.smoker_listening_worker.INFO Python version:  3.12.3
+2024-06-05 23:26:32,132.smoker_listening_worker.INFO Python path: C:\Users\Tower\anaconda3\envs\RabbitEnv
+2024-06-05 23:26:32,133.smoker_listening_worker.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\-streaming-05-smart-smoker
+2024-06-05 23:26:32,133.smoker_listening_worker.INFO ==================================================
+2024-06-05 23:26:32,195.smoker_listening_worker.INFO  [*] Ready for work. To exit press CTRL+C
+2024-06-05 23:26:34,887.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:21:15; Smoker is temp: 87.6 deg F.
+2024-06-05 23:26:39,944.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:22:10; Smoker is temp: 86.3 deg F.
+2024-06-05 23:26:45,038.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:22:15; Smoker is temp: 86.3 deg F.
+2024-06-05 23:26:50,121.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:23:10; Smoker is temp: 92.0 deg F.
+2024-06-05 23:26:55,223.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:23:15; Smoker is temp: 92.0 deg F.
+2024-06-05 23:27:00,274.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:24:10; Smoker is temp: 96.8 deg F.
+2024-06-05 23:27:05,363.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:24:15; Smoker is temp: 96.8 deg F.
+2024-06-05 23:27:10,501.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:25:10; Smoker is temp: 100.6 deg F.
+2024-06-05 23:27:15,666.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:25:15; Smoker is temp: 100.9 deg F.
+2024-06-05 23:27:20,770.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:25:20; Smoker is temp: 100.9 deg F.
+2024-06-05 23:27:25,846.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:26:10; Smoker is temp: 104.8 deg F.
+2024-06-05 23:27:30,930.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:26:15; Smoker is temp: 104.8 deg F.
+2024-06-05 23:27:35,988.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:27:10; Smoker is temp: 108.2 deg F.
+2024-06-05 23:27:41,065.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:27:15; Smoker is temp: 108.2 deg F.
+2024-06-05 23:27:46,156.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:28:10; Smoker is temp: 111.4 deg F.
+2024-06-05 23:27:51,273.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:28:15; Smoker is temp: 111.4 deg F.
+2024-06-05 23:27:56,317.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:29:10; Smoker is temp: 114.2 deg F.
+2024-06-05 23:28:01,386.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:29:15; Smoker is temp: 114.2 deg F.
+2024-06-05 23:28:06,647.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:30:10; Smoker is temp: 116.9 deg F.
+2024-06-05 23:28:11,705.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:30:15; Smoker is temp: 116.9 deg F.
+2024-06-05 23:28:16,760.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:31:10; Smoker is temp: 119.4 deg F.
+2024-06-05 23:28:21,829.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:31:15; Smoker is temp: 119.4 deg F.
+2024-06-05 23:28:26,879.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:32:10; Smoker is temp: 120.1 deg F.
+2024-06-05 23:28:32,007.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:32:15; Smoker is temp: 120.1 deg F.
+2024-06-05 23:28:37,071.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:33:10; Smoker is temp: 106.2 deg F.
+2024-06-05 23:28:42,126.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:33:15; Smoker is temp: 106.2 deg F.
+2024-06-05 23:28:47,204.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:34:10; Smoker is temp: 103.5 deg F.
+2024-06-05 23:28:47,206.smoker_listening_worker.INFO 
+                        ************************ [SMOKER ALERT!!!!] *****************************
+                        Smoker Temperature has falled by 15 deg F 16.599999999999994 in 2.5 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-05 23:28:52,288.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:34:15; Smoker is temp: 103.5 deg F.
+2024-06-05 23:28:52,289.smoker_listening_worker.INFO 
+                        ************************ [SMOKER ALERT!!!!] *****************************
+                        Smoker Temperature has falled by 15 deg F 16.599999999999994 in 2.5 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-05 23:28:57,355.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:35:10; Smoker is temp: 105.3 deg F.
+2024-06-05 23:29:02,433.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:35:15; Smoker is temp: 105.3 deg F.
+2024-06-05 23:29:07,808.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:36:10; Smoker is temp: 106.9 deg F.
+2024-06-05 23:29:13,245.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:36:15; Smoker is temp: 106.9 deg F.
+2024-06-05 23:29:18,882.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:37:10; Smoker is temp: 111.9 deg F.
+2024-06-05 23:29:23,939.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:37:15; Smoker is temp: 111.9 deg F.
+2024-06-05 23:29:28,996.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:38:10; Smoker is temp: 114.2 deg F.
+2024-06-05 23:29:34,058.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:38:15; Smoker is temp: 114.2 deg F.
+2024-06-05 23:29:39,235.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:39:10; Smoker is temp: 115.5 deg F.
+2024-06-05 23:29:44,293.smoker_listening_worker.INFO [x] Received: 01-smoker Reading = 05/22/21 12:39:15; Smoker is temp: 115.5 deg F.
+2024-06-05 23:29:49,350.smoker_listening_worker.INFO KeyboardInterrupt. Stopping the Program
+2024-06-05 23:29:49,351.smoker_listening_worker.INFO 
 closing connection. Goodby
 

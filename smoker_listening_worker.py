@@ -22,7 +22,7 @@ smoker_deque = deque(maxlen=5)
 def callback(ch, method, properties, body):
     """ Define behavior on getting a message."""
     # decode the binary message body to a string
-    print(f" [x] Received {body.decode()}")
+    #print(f" [x] Received {body.decode()}")
     logger.info(f"[x] Received: {body.decode()}")
     
     # acknowledge the message was received and processed 
@@ -40,7 +40,12 @@ def callback(ch, method, properties, body):
     if len(smoker_deque) == smoker_deque.maxlen:
         if smoker_deque[0] - temps_float > 15:
             smoker_change = smoker_deque[0] - temps_float
-            logger.info(f'* [SMOKER ALERT!] * Temperature has falled by 15 deg F {smoker_change}')
+            logger.info(f'''
+                        ************************ [SMOKER ALERT!!!!] *****************************
+                        Smoker Temperature has falled by 15 deg F {smoker_change} in 2.5 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        ''')
 
                        
 
