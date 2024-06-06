@@ -73,7 +73,7 @@ def send_message(host: str, queue_name: str, message: str):
         
         # Delete existing queues and declares them anew to clear previous queue information.
         # use the channel to declare a durable queue for each of the queues.
-        #ch.queue_delete(smoker_queue)
+        ch.queue_delete(smoker_queue)
         ch.queue_delete(foodA_queue)
         ch.queue_delete(foodB_queue)
 
@@ -133,13 +133,13 @@ try:
                 # Created message for food_A_temp
                 if food_A_temp:
                      food_A_temp = float(food_A_temp)
-                     message = (f"{foodA_queue} Reading = Date: {timestamp}; temp: {food_A_temp} deg F.").encode()
+                     message = (f"{foodA_queue} Reading = Date: {timestamp}; Food-A is temp: {food_A_temp} deg F.").encode()
                      send_message(host, "02-food-A", message)
                      logger.info(f"[x] sent {food_A_temp} at {timestamp} to {foodA_queue}, {message}")
                 # Created a message for food_B_temp
                 if food_B_temp:
                     food_B_temp = float(food_B_temp)
-                    message = (f"{foodB_queue} Reading = {timestamp}; temp: {food_A_temp} deg F.").encode()
+                    message = (f"{foodB_queue} Reading = {timestamp}; Food-B is temp: {food_A_temp} deg F.").encode()
                     message = (timestamp, food_B_temp)
                     send_message(host, "03-food-B", message)
                     logger.info(f"[x] sent {food_B_temp} at {timestamp} to {foodB_queue}, {message}")

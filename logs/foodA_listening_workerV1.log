@@ -1,0 +1,11 @@
+2024-06-05 23:53:26,820.foodA_listening_workerV1.INFO ==================================================
+2024-06-05 23:53:26,821.foodA_listening_workerV1.INFO Today is 2024-06-05 at 11:53 PM
+2024-06-05 23:53:26,823.foodA_listening_workerV1.INFO Running on: nt Windows 10
+2024-06-05 23:53:26,825.foodA_listening_workerV1.INFO Python version:  3.12.3
+2024-06-05 23:53:26,826.foodA_listening_workerV1.INFO Python path: C:\Users\Tower\anaconda3\envs\RabbitEnv
+2024-06-05 23:53:26,827.foodA_listening_workerV1.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\-streaming-05-smart-smoker
+2024-06-05 23:53:26,827.foodA_listening_workerV1.INFO ==================================================
+2024-06-05 23:53:26,883.foodA_listening_workerV1.INFO  [*] Ready for work. To exit press CTRL+C
+2024-06-05 23:53:31,270.foodA_listening_workerV1.INFO 
+closing connection. Goodby
+

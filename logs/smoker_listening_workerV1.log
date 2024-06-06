@@ -1,0 +1,21 @@
+2024-06-05 23:48:33,537.smoker_listening_workerV1.INFO ==================================================
+2024-06-05 23:48:33,538.smoker_listening_workerV1.INFO Today is 2024-06-05 at 11:48 PM
+2024-06-05 23:48:33,541.smoker_listening_workerV1.INFO Running on: nt Windows 10
+2024-06-05 23:48:33,541.smoker_listening_workerV1.INFO Python version:  3.12.3
+2024-06-05 23:48:33,542.smoker_listening_workerV1.INFO Python path: C:\Users\Tower\anaconda3\envs\RabbitEnv
+2024-06-05 23:48:33,543.smoker_listening_workerV1.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\-streaming-05-smart-smoker
+2024-06-05 23:48:33,544.smoker_listening_workerV1.INFO ==================================================
+2024-06-05 23:48:33,607.smoker_listening_workerV1.INFO  [*] Ready for work. To exit press CTRL+C
+2024-06-05 23:48:38,535.smoker_listening_workerV1.INFO [x] Received: 01-smoker Reading = 05/22/21 12:23:15; Smoker is temp: 92.0 deg F.
+2024-06-05 23:48:43,592.smoker_listening_workerV1.INFO [x] Received: 01-smoker Reading = 05/22/21 12:24:10; Smoker is temp: 96.8 deg F.
+2024-06-05 23:48:48,796.smoker_listening_workerV1.INFO [x] Received: 01-smoker Reading = 05/22/21 12:24:15; Smoker is temp: 96.8 deg F.
+2024-06-05 23:48:53,856.smoker_listening_workerV1.INFO [x] Received: 01-smoker Reading = 05/22/21 12:25:10; Smoker is temp: 100.6 deg F.
+2024-06-05 23:48:58,926.smoker_listening_workerV1.INFO [x] Received: 01-smoker Reading = 05/22/21 12:25:15; Smoker is temp: 100.9 deg F.
+2024-06-05 23:49:03,988.smoker_listening_workerV1.INFO [x] Received: 01-smoker Reading = 05/22/21 12:25:20; Smoker is temp: 100.9 deg F.
+2024-06-05 23:49:09,061.smoker_listening_workerV1.INFO [x] Received: 01-smoker Reading = 05/22/21 12:26:10; Smoker is temp: 104.8 deg F.
+2024-06-05 23:49:14,136.smoker_listening_workerV1.INFO [x] Received: 01-smoker Reading = 05/22/21 12:26:15; Smoker is temp: 104.8 deg F.
+2024-06-05 23:49:19,239.smoker_listening_workerV1.INFO [x] Received: 01-smoker Reading = 05/22/21 12:27:10; Smoker is temp: 108.2 deg F.
+2024-06-05 23:49:24,255.smoker_listening_workerV1.INFO KeyboardInterrupt. Stopping the Program
+2024-06-05 23:49:24,258.smoker_listening_workerV1.INFO 
+closing connection. Goodby
+
