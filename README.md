@@ -87,7 +87,7 @@ This project was creating a Windows OS computer with the following specs. These 
 # 5. Creating Environment & Installs (Updated)
 This project uses two different environments, Anaconda, and VS Code. Follow each section to create the VS Code environment and the Anaconda environment. Remember with the Anaconda Environment this will save on the machine once created. If you previously have an Anaconda environment installed containing Pika then use that one. The Anaconda environment is not necessary for this project it was utilized to ensure the environments between VS Code and Anaconda were consistent when running the Producer and Consumers. The Producer was run in VS Code, while all three Consumers were run in separate Anaconda Terminals.
 
-## 5.1 VS Code Env
+## 5a. VS Code Env
 To create a local Python virtual environment to isolate our project's third-party dependencies from other projects. Use the following commands to create an environment, when prompted in VS Code set the .venv to a workspace folder and select yes.
 
 ```
@@ -100,7 +100,7 @@ python -m pip install -r requirements.txt
 ```
 For more information on Pika see the [Pika GitHub](https://github.com/pika/pika). 
 
-## 5.2 Anaconda Env
+## 5b. Anaconda Env
 To create an Anaconda environment open an Anaconda Prompt, the first thing that will pop up is the base. Then we are going to locate our folder, to do this type the following:
 ```
 cd Documents\folder_where_repo_is
@@ -130,7 +130,7 @@ install pika # library installation
 ```
 
 
-## 5.3. Setup Verification
+## 5c. Setup Verification
 To verify the setup of your environment run both util_about.py and util_aboutenv.py found in the util's folder or use the following commands in the terminal. These commands are structured for Windows OS if using MacOS or Linux modified to have them function. Run the pip list in the terminal to check the Pika installation.
 
 ```
