@@ -9,6 +9,10 @@ Based on that information we compare the temperatures inside the deque to determ
 If Y then an Alert is issued.
 
 The Process can be interrupted using Ctrl + C if an escape is needed.
+
+
+Base Code Written By: Denise Case
+    Date: January 15, 2023
 """
 
 import pika
