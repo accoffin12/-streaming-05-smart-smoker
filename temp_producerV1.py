@@ -73,9 +73,9 @@ def send_message(host: str, queue_name: str, message: str):
         
         # Delete existing queues and declares them anew to clear previous queue information.
         # use the channel to declare a durable queue for each of the queues.
-        ch.queue_delete(smoker_queue)
-        ch.queue_delete(foodA_queue)
-        ch.queue_delete(foodB_queue)
+        #ch.queue_delete(smoker_queue)
+        #ch.queue_delete(foodA_queue)
+        #ch.queue_delete(foodB_queue)
 
         # use the channel to declare a durable queue
         # a durable queue will survive a RabbitMQ server restart
@@ -140,7 +140,6 @@ try:
                 if food_B_temp:
                     food_B_temp = float(food_B_temp)
                     message = (f"{foodB_queue} Reading = {timestamp}; Food-B is temp: {food_A_temp} deg F.").encode()
-                    message = (timestamp, food_B_temp)
                     send_message(host, "03-food-B", message)
                     logger.info(f"[x] sent {food_B_temp} at {timestamp} to {foodB_queue}, {message}")
 

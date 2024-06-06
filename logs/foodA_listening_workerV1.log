@@ -1,11 +1,19 @@
-2024-06-05 23:53:26,820.foodA_listening_workerV1.INFO ==================================================
-2024-06-05 23:53:26,821.foodA_listening_workerV1.INFO Today is 2024-06-05 at 11:53 PM
-2024-06-05 23:53:26,823.foodA_listening_workerV1.INFO Running on: nt Windows 10
-2024-06-05 23:53:26,825.foodA_listening_workerV1.INFO Python version:  3.12.3
-2024-06-05 23:53:26,826.foodA_listening_workerV1.INFO Python path: C:\Users\Tower\anaconda3\envs\RabbitEnv
-2024-06-05 23:53:26,827.foodA_listening_workerV1.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\-streaming-05-smart-smoker
-2024-06-05 23:53:26,827.foodA_listening_workerV1.INFO ==================================================
-2024-06-05 23:53:26,883.foodA_listening_workerV1.INFO  [*] Ready for work. To exit press CTRL+C
-2024-06-05 23:53:31,270.foodA_listening_workerV1.INFO 
-closing connection. Goodby
-
+2024-06-06 01:11:13,467.foodA_listening_workerV1.INFO ==================================================
+2024-06-06 01:11:13,467.foodA_listening_workerV1.INFO Today is 2024-06-06 at 01:11 AM
+2024-06-06 01:11:13,469.foodA_listening_workerV1.INFO Running on: nt Windows 10
+2024-06-06 01:11:13,469.foodA_listening_workerV1.INFO Python version:  3.12.3
+2024-06-06 01:11:13,470.foodA_listening_workerV1.INFO Python path: C:\Users\Tower\anaconda3\envs\RabbitEnv
+2024-06-06 01:11:13,470.foodA_listening_workerV1.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\-streaming-05-smart-smoker
+2024-06-06 01:11:13,471.foodA_listening_workerV1.INFO ==================================================
+2024-06-06 01:11:13,528.foodA_listening_workerV1.INFO  [*] Ready for work. To exit press CTRL+C
+2024-06-06 01:11:25,461.foodA_listening_workerV1.INFO [x] Received: 02-food-A Reading = Date: 05/22/21 14:18:15; Food-A is temp: 65.6 deg F.
+2024-06-06 01:11:30,485.foodA_listening_workerV1.INFO [x] Received: 02-food-A Reading = Date: 05/22/21 14:18:20; Food-A is temp: 65.6 deg F.
+2024-06-06 01:11:50,605.foodA_listening_workerV1.INFO [x] Received: 02-food-A Reading = Date: 05/22/21 14:19:20; Food-A is temp: 66.9 deg F.
+2024-06-06 01:11:55,629.foodA_listening_workerV1.INFO [x] Received: 02-food-A Reading = Date: 05/22/21 14:19:25; Food-A is temp: 66.9 deg F.
+2024-06-06 01:12:15,755.foodA_listening_workerV1.INFO [x] Received: 02-food-A Reading = Date: 05/22/21 14:20:15; Food-A is temp: 68.1 deg F.
+2024-06-06 01:13:04,779.foodA_listening_workerV1.INFO [x] Received: 02-food-A Reading = Date: 05/22/21 14:20:20; Food-A is temp: 68.1 deg F.
+2024-06-06 01:13:04,781.foodA_listening_workerV1.INFO [x] Received: 02-food-A Reading = Date: 05/22/21 14:21:20; Food-A is temp: 69.2 deg F.
+2024-06-06 01:13:04,784.foodA_listening_workerV1.INFO [x] Received: 02-food-A Reading = Date: 05/22/21 14:21:25; Food-A is temp: 69.2 deg F.
+2024-06-06 01:13:06,034.foodA_listening_workerV1.INFO [x] Received: 02-food-A Reading = Date: 05/22/21 14:22:20; Food-A is temp: 70.3 deg F.
+2024-06-06 01:13:11,053.foodA_listening_workerV1.INFO [x] Received: 02-food-A Reading = Date: 05/22/21 14:22:25; Food-A is temp: 70.3 deg F.
+2024-06-06 01:13:16,058.foodA_listening_workerV1.INFO KeyboardInterrupt. Stopping the Program

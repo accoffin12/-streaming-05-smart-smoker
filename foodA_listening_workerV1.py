@@ -11,7 +11,7 @@ logger, logname = setup_logger(__file__)
 # define the deque outside of functions, allowing them to be appended
 # each reading is 30 seconds apart, so the maxlen of each dequeue = 2 * window in minutes.\
 # 20/2 = 10 minute window
-foodA_deque = deque(maxlen=10) 
+foodA_deque = deque(maxlen=20) 
 
 
 # Define Program functions
@@ -30,28 +30,28 @@ def callback(ch, method, properties, body):
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
     # Clean the body of the message to find the temperature:
-    #body_decode = body.decode('utf-8')
-    #temps = re.findall(r'Food-A is temp: (\d+\.\d+)', body_decode)
-    #temps_float = float(temps[0])
-    #foodA_deque.append(temps_float)
+    body_decode = body.decode('utf-8')
+    temps = re.findall(r'Food-A is temp: (\d+\.\d+)', body_decode)
+    temps_float = float(temps[0])
+    foodA_deque.append(temps_float)
 
     # Objective, to know if the smoker has stalled resulting in a less than 1 deg. F change in food
     # in 10 minutes, resulting in a FOOD-A ALERT! being generated
-    #if len(foodA_deque) == foodA_deque.maxlen:
-        #if foodA_deque[0] - temps_float < 1:
-            #foodA_change = foodA_deque[0] - temps_float
-            #logger.info(f'''
-                        #************************ [FOOD-A ALERT!!!!] *****************************
-                        #Food-A Temperature Stalled! deg F {foodA_change} in 10 minutes!
-                        #Please Check Fuel Source and Lid Closure!!!
-                        #*************************************************************************
-                        #''')
+    if len(foodA_deque) == foodA_deque.maxlen:
+        if foodA_deque[0] - temps_float < 1:
+            foodA_change = foodA_deque[0] - temps_float
+            logger.info(f'''
+                        ************************ [FOOD-A ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F {foodA_change} in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        ''')
 
                        
 
 
 # define a main function to run the program
-def main(hn: str = "localhost", qn: str = "02-food-A"):
+def main(hn: str = "localhost", qn: str ="02-food-A"):
     """ Continuously listen for task messages on a named queue."""
 
     # when a statement can go wrong, use a try-except block
