@@ -2,18 +2,18 @@
 > Created by: A. C. Coffin | Completed: 2024 May | NW Missouri State University | CSIS: 44671-80| Dr. Case | Developing a Producer for RabbitMQ
 
 # Overview (Updated)
-Developing a Producer to read the temperature of a Smart Smoker based on specific events. This will be done through simulating temerature readings from the smart smoker of two foods. Create a producer to send these temeprature readings to RabbitMQ and then three consumer processes, each on monitoring one of the temperature streams. Within each consumer it must perform calculations to determine if a significant event has occured. Each of the Consumer Scripts is an example of how deques and windowing may be applied to pull smaller segments of data, rather than the whole set. 
+Developing a Producer to read the temperature of a Smart Smoker based on specific events. This will be done through simulating temperature readings from the smart smoker of two foods. Create a producer to send these temperature readings to RabbitMQ and then three consumer processes, each monitoring one of the temperature streams. Within each consumer it must perform calculations to determine if a significant event has occurred. Each of the Consumer Scripts is an example of how deques and windowing may be applied to pull smaller sets, rather than the whole set. 
  
 ## Deques & Windows
-Deques and windows are utilized together as a way for us to collect slices of data that are produced over a long period of time. In a sense they allow us to access only data that we are interested in over a sepcified period of time, called a window. A deque or double-ended queue is an ordered collections of itmes that allows insertion and deletions from both ends. Deques are C base structure that allow a large amount of flexibility. Deques have indexed access that requires two pointer derefernces. 
+Deques and windows are utilized together as a way for us to collect slices of data that are produced over a long period. They allow us to access only data we are interested in over a specified period, called a window. A deque or double-ended queue is an ordered collection of items that allows insertion and deletions from both ends. Deques are C structures that allow a large amount of flexibility. Deques have indexed access that requires two-pointer dereferences. 
 
-In the case of the Consumers developed for this project, which use sliding windows, deques are used because they allow constant insertion and removal. This function of a deque in combination with a sliding window - a function that pulls a fixed size subset of elements within a stream - makes it ideal to maintain boundaries during a stream. 
+In the case of the Consumers developed for this project, which use sliding windows, deques are used because they allow constant insertion and removal. This function of a deque in combination with a sliding window - a function that pulls a fixed-size subset of elements within a stream - makes it ideal to maintain boundaries during a stream. 
 
-Windowing does not requrie continuous blocks of memory, which means that elements in a deque are scattered throughout memory. By doing this it allows deques to grow without needing to find a chunk of memory.
+Windowing does not require continuous blocks of memory, which means that elements in a deque are scattered throughout memory. By doing this it allows deques to grow without needing to find a chunk of memory.
 
 
 ## Update for M6 6 June 2024:
-This Repo was added to between 31 May 2024 and 06 June 2024 to contain three seperate Consumers that work in conjunction with the producer previously designed. Thier associated sections have been added. Additionally modifications to the Producer to address message errors has been done. A majority of these issues pertained to spelling and an extra message line that was unnecessary. The script temp_producerV2.py was removed due to time constraints on completing the corresponding Consumer. 
+This Repo was added between 31 May 2024 and 06 June 2024 to contain three separate Consumers that work in conjunction with the producer previously designed. Their associated sections have been added. Additionally, modifications to the Producer to address message errors have been made. A majority of these issues pertained to spelling and an extra message line that was unnecessary. The script temp_producerV2.py was removed due to time constraints on completing the corresponding Consumer. 
 
 The Complete Screen Shot of the Project has been added. The Terminals are as follows:
 1. temp_producerV1.py
@@ -29,7 +29,7 @@ The Complete Screen Shot of the Project has been added. The Terminals are as fol
 2. [Machine Specs](Machine_Specs)
 3. [Prerequisites](Prerequisites)
 4. [Before you Begin](Before_you_Begin)
-5. [Creating Enviroment & Installs](Creating_Enviroment_&_Installs)
+5. [Creating Environment & Installs](Creating_Enviroment_&_Installs)
 6. [Data & Project Specifics](Data_&_Project_Specifics)
 7. [Developing Producer](Developing_Producer)
 8. [Developing Consumer](Developing_Consumer)
@@ -57,7 +57,7 @@ The Complete Screen Shot of the Project has been added. The Terminals are as fol
 | foodB_listening_workerV1.log | logs folder | log | M6 |
 
 # 2. Machine Specs
-This project was creating a Windows OS computer with the following specs. These are not requried to run the repository. For further details on the machine used go to the "utils folder" and open the "util_output" folder to access the full output. The "util_about.py" was created by NW Missouri State University and was added to the repository to provide technical information. 
+This project was creating a Windows OS computer with the following specs. These are not required to run the repository. For further details on the machine used go to the "utils folder" and open the "util_output" folder to access the full output. The "util_about.py" was created by NW Missouri State University and was added to the repository to provide technical information. 
 
 * Operating System: nt Windows 10
 * System Architecture: 64bit
@@ -85,7 +85,7 @@ This project was creating a Windows OS computer with the following specs. These 
 4. Select your conda environment.
 
 # 5. Creating Environment & Installs (Updated)
-This projuct Uses two different enviroments, Anaconda and VS Code. Follow each section to create both the VS Code enviroment and the Anaconda Enviroment. Remember with the Anaconda Enviroment this will save on the machine once created. If you previously have an Anaconda enviroment installed containing Pika then use that one. The Anaconda Enviroment is not necessry for this project it was utilized to ensure the enviroments between VS Code and Anaconda were consistent when running the Producer and Consumers. The Producer was run in VS Code, while all three Consumers were run in seperate Anaconda Terminals.
+This project uses two different environments, Anaconda, and VS Code. Follow each section to create the VS Code environment and the Anaconda environment. Remember with the Anaconda Environment this will save on the machine once created. If you previously have an Anaconda environment installed containing Pika then use that one. The Anaconda environment is not necessary for this project it was utilized to ensure the environments between VS Code and Anaconda were consistent when running the Producer and Consumers. The Producer was run in VS Code, while all three Consumers were run in separate Anaconda Terminals.
 
 ## 5.1 VS Code Env
 To create a local Python virtual environment to isolate our project's third-party dependencies from other projects. Use the following commands to create an environment, when prompted in VS Code set the .venv to a workspace folder and select yes.
@@ -114,13 +114,13 @@ Once the folder has been located the line should look like this:
 # Result in my Terminal:
 (base) C:\Users\Tower>cd Documents/ACoffinCSIS44671/-streaming-05-smart-smoker
 ```
-To create an enviroment do the following:
+To create an environment do the following:
 ```
-conda create -n RabbitEnv # Creates Enviroment
-conda activate RabbitEnv # Activates Enviroment
-# This will create the enviroments if you want to deactivate it, enter: conda deactivate
+conda create -n RabbitEnv # Creates Environment
+conda activate RabbitEnv # Activates Environment
+# This will create the environment if you want to deactivate it, enter: conda deactivate
 ```
-After creating the enviroment exicute each of the following step by step. These must be executed seperatly because we are pulling Pika from Conda Forge.
+After creating the environment execute each of the following step by step. These must be executed separately because we are pulling Pika from Conda Forge.
 
 ```
 python --version # Indicates Python Version Installed
@@ -131,7 +131,7 @@ install pika # library installation
 
 
 ## 5.3. Setup Verification
-To verify the setup of your environment run both util_about.py and util_aboutenv.py found in the util's folder or use the following commands in the terminal. These commands are structured for Windows OS if using MacOS or Linux modified to have them function. Also, run the pip list in the terminal to check the Pika installation.
+To verify the setup of your environment run both util_about.py and util_aboutenv.py found in the util's folder or use the following commands in the terminal. These commands are structured for Windows OS if using MacOS or Linux modified to have them function. Run the pip list in the terminal to check the Pika installation.
 
 ```
 python ".\\utils\util_about.py"
@@ -155,14 +155,14 @@ smoker-temps.csv has 4 columns:
 * Remember: No prior coding experience is required to take this course. Rely heavily on the working examples from earlier modules. 
 * The more similar your code looks to the examples - the more credit earned.
 * Vastly different approaches can be expected to earn less credit not more.
-* This project should clearly build on skills and code we've already mastered. If not, let me know and more help will be provided. 
+* This project should build on skills and code we've already mastered. If not, let me know and more help will be provided. 
 * The primary difference should be going from 1 to 3 queue_names and from 1 to 3 callbacks. 
 * Part of the challenge is to implement analytics using the tools and approach provided (don't significantly refactor the codebase during your first week of work!) 
 * AFTER earning credit for the assignment, THEN create and share additional custom projects. 
 It's important to note that this project only develops a Producer, we will be heavily relying on the RabbitMQ Admin Panel and logs. The logs for this project have been included in the repository to show that the message is being sent to the queue. 
 
 ## 6b. Consumers (Updated)
-The requirements as stipulated in 4a created during Module 5 are the same for this project. The student is required to modify preexisting basecode to create the consumers. Basecode samples are included in the respository and were pulled from "streaming-04-multiple-consumers" repository.
+The requirements as stipulated in 4a created during Module 5 are the same for this project. The student is required to modify the preexisting base code to develop the consumers. Basecode samples are included in the repository and were pulled from the "streaming-04-multiple-consumers" repository.
 
 **Consumer Specific:**
 We want to know if:
@@ -184,7 +184,7 @@ The Producer for this project is based on a Base Code provided by Dr. Case calle
 **See 7c. Producer (Updates) for modifications made to Producer in M6.**
 
 ## 7a. ProducerV1: send_message Function
-This particular Producer focused on developing a Producer that would stream data to 3 separate queues, smoker_queue, foodA_queue, and foodB_queue. To do this the variables were declared upfront. There were complications when the variables were placed under the entry point, so they were moved to the top under the Imported Libraries. 
+This particular Producer focused on developing a Producer to stream data to 3 separate queues, smoker_queue, foodA_queue, and foodB_queue. To do this the variables were declared upfront. There were complications when the variables were placed under the entry point, so they were moved to the top under the Imported Libraries. 
 
 ```
 # Declaring variables:
@@ -212,7 +212,7 @@ With each of the three queues, an emphasis was placed on making them durable if 
         ch.queue_declare(foodA_queue, durable=True)
         ch.queue_declare(foodB_queue, durable=True)
 ```
-We set the messages to publish to a specific exchange, routing_key, and message. Once established error handling was added, in case the connection to the server either failed or couldn't be established. Finally, we designed the script to close when the stream of data was complete. This process can take a very long time, so an exception was added for a keyboard escape:
+We set the messages to publish to a specific exchange, routing_key, and message. Once established error handling was added, in case the connection to the server failed or couldn't be established. Finally, we designed the script to close when the stream was complete. This process can take a very long time, so an exception was added for a keyboard escape:
 
 ```
 except KeyboardInterrupt:
@@ -220,7 +220,7 @@ except KeyboardInterrupt:
 ```
 
 ## 7b. ProducerV1: main function
-This portion was designed to open a CSV and iterate through each of the rows based on the column information to the corresponding queue. There are a total of 4 columns in the CSV, however only 3 need queues of their own. 
+This portion was designed to open a CSV and iterate through each row based on the column information to the corresponding queue. There are 4 columns in the CSV, however only 3 need queues. 
 
 When creating the read function, we use row numbers to correspond with each row's information.
 
@@ -245,7 +245,7 @@ A time and date split was performed as the data could not be transformed into a 
 Another exception handler was added in case the CSV file could not be found, or there was a value error. The CSV file does contain a Header Row, this was handled within the code. If we were to call float("Channel1") in the beginning, which is not a float value, without skipping the header we would receive an error stating that the input was not the expected data type. So with this particular code, the line was skipped in the reader using `header = next(reader)`. 
 
 ## 7c. Producer (Updates)
-There were a few errors when handling the queues with the producer, these were addressed. There has also been a second message line left for each queue when experiementing with message outputs. The ProducerV2 was removed in favor of a more simplified approach. Before running the Producer the lines responsible for deleting the queue were commended out:
+There were a few errors when handling the queues with the producer, these were addressed. There has also been a second message line left for each queue when experimenting with message outputs. The ProducerV2 was removed in favor of a more simplified approach. Before running the Producer the lines responsible for deleting the queue were commented out:
 ```
 # Delete existing queues and declares them anew to clear previous queue information.
         # use the channel to declare a durable queue for each of the queues.
@@ -253,13 +253,13 @@ There were a few errors when handling the queues with the producer, these were a
         #ch.queue_delete(foodA_queue)
         #ch.queue_delete(foodB_queue)
 ```
-These were deactivated in order to send messages to the queue without the queue deleting after the message was sent.
+These were deactivated to send messages to the queue without the queue deleting after the message was sent.
 
 # 8. Developing Consumer
-For this project multiple consumers were created. The reason was to seperate the temperatures based on which sensor was producing the reading. That way it is possible to track each sensor independtly. With independent tracking it allows us to focus on each sensor and possibly stream the data into a seperate file later. The Consumers for this project are based on a Base Code provided by Dr. Case called "v2_listening_worker.py" from the [streaming-04-multiple-consumers](ttps://github.com/denisecase/streaming-04-multiple-consumers). Samples of the v2_listening_worker.py can be found in the BaseCode_Samples folder, along with the Producer base code. 
+For this project, multiple consumers were created. The reason was to separate the temperatures based on which sensor was producing the reading. That way it is possible to track each sensor independently. Independent tracking focuses on each sensor and possibly stream the data into a separate file later. The Consumers for this project are based on a Base Code provided by Dr. Case called "v2_listening_worker.py" from the [streaming-04-multiple-consumers](ttps://github.com/denisecase/streaming-04-multiple-consumers). Samples of the v2_listening_worker.py can be found in the BaseCode_Samples folder, along with the Producer base code. 
 
 To explain the process applied to the consumers we will examine the smoker_listening_workerV1.py.
-The rest of the Consumers were developed utilizing a similar format with the exception of queue based names and deque lengths:
+The rest of the Consumers were developed utilizing a similar format with the exception of queue-based names and deque lengths:
 ```
 # Deque Maxlen for each Consumer
 # Smoker = 5/2 = 2.5 minute window
@@ -271,24 +271,24 @@ foodB_deque = deque(maxlen=20)
 ```
  
 ## 8a. Callback
-This function was developed to process the message once pulled from the queue by the Consumer. This processing hase 3 major components. The first is a basic log entry that indicates the message has been recieved and is designed to decode it in the entry. This was kept as a method to ensure the data entering the queue and leaving the queue were the same. Once this occured the original basic_ack was left from the Base Code.
+This function was developed to process the message once pulled from the queue by the Consumer. This processing has 3 major components. The first is a basic log entry that indicates the message has been received and is designed to decode it in the entry. This was kept as a method to ensure the data entering the queue and leaving the queue were the same. Once this occurred the original basic_ack was left from the Base Code.
 
 ### 8a1. Using re Module
 
-The message was cleaned through the use of the Library re. The re module allows us to match expression operations within a string given a regular expression. This is process is heavily relient on both patterns and strings being processed as 8 bit strings (utf-8). In this case we use 'Smoker is temp:' as the expression. The `(\d+\.\d+)`, which represents any nine digits one or more times, the `\.` escapes the dot character which matches the float point in the temperature. Finally the entire line captures a decimal number with at least one digit before and after the decimal point. 
+The message was cleaned through the use of the Library re. The re-(Regular Expressions Operations) module allows us to match expression operations within a string given a regular expression. This process relies on patterns and strings being processed as 8-bit strings ('utf-8'). In this case, we use 'Smoker is temp:' as the expression. The `(\d+\.\d+)` represents any nine digits one or more times, `\.` escapes the dot character which matches the float point in the temperature. Finally, the entire line captures a decimal number with at least one digit before and after the decimal point. 
 
 The resulting code looks as follows:
 ```
 body_decode = body.decode('utf-8')
 temps = re.findall(r'Smoker is temp: (\d+\.\d+)', body_decode)
 ```
-After being decoded, the float is addressed in temps_fload and finally the new temps_float is added to the smoker_deque.
+After being decoded, the float is addressed in temps_fload and finally, the new temps_float is added to the smoker_deque.
 ```
 temps_float = float(temps[0])
 smoker_deque.append(temps_float)
 ```
 ### 8a2. Creating the Alert
-The alert indicating when the smoker had dropped in temperature was created by analyszing the number of elements within the smoker_deque and applying a basic equation.
+The alert indicating when the smoker had dropped in temperature was created by analyzing the number of elements within the smoker_deque and applying a basic equation.
 
 ```
 if len(smoker_deque) == smoker_deque.maxlen: # Counts each element in the deque
@@ -297,7 +297,7 @@ if len(smoker_deque) == smoker_deque.maxlen: # Counts each element in the deque
         if smoker_deque[0] - temps_float >= 15: 
             smoker_change = smoker_deque[0] - temps_float
 ```
-Finally if the change in temperature has indicated a decrease in temperture by at least 15 degrees F, based on the data in the window an Alert is generated.
+If the temperature change has indicated a decrease in temperature by at least 15 degrees F, based on the data in the window an Alert is generated.
 
 ```
 logger.info(f'''
@@ -308,32 +308,32 @@ logger.info(f'''
                         ''')
 ```
 ## 8b. Main Function
-A majority of the base code remains when examining this portion of the Consumer. The logic to establish the connection is the same with the exception of the following:
+Most of the base code remains when examining this portion of the Consumer. The logic to establish the connection is the same except the following:
 
 ```
-# Used to delete the queue once the message is recieved.
+# Used to delete the queue once the message is received.
 channel.queue_delete(queue=qn)
 
 # and do not auto-acknowledge the message (let the callback handle it)
         channel.basic_consume( queue=qn, on_message_callback=callback, auto_ack=False)
 ```
-Auto_ack was set to False in order to prevent the queue from acknowleging the message and deleting it before the message was processed. By adding this line it ensure the message is handled correctly.
+Auto_ack was set to False to prevent the queue from acknowledging the message, and deleting it before it was processed. By adding this line it ensures the message is handled correctly.
 
 The smoker Consumer when run with the Producer should produce the following results:
 ![Test2SmokerConsumerBiggerAlert.PNG](Screenshots/Test2SmokerConsumerBiggerAlert.PNG)
 
 # 9. Running Producer/Consumer
-Executing this grouping of Producer and 3 Consumers requries a series of steps. Follow each of these carefully. When utilizing multiple consumers always activate the Consumers first. That way when the Producer is run we can see if the queues are being emptied by the Consumers or if there is an issue. 
+Executing this grouping of Producers and 3 Consumers requires a series of steps, follow each of these carefully. When utilizing multiple consumers always activate the Consumers first. By doing this method, we can see if the queues are being emptied by the Consumers properly. 
 
-It is possible to run each of the consumers individually, there are screenshots within the Screen Shots folder documenting their successful run during developement. However in this case, we want to utilize all 3 consumers with the Producer.
+It is possible to run each of the consumers individually, there are screenshots within the Screen Shots folder documenting their successful run during development. However, in this case, we want to utilize all 3 consumers with the Producer.
 **Before Running Producer and Consumers, make sure RabbitMQ is running, it will not work if it isn't.**
 
 1. Open 3 Anaconda Prompt Terminals
-2. In each of these three terminals set the file path to where the repo sits. Use the following structure to access this folder path.
+2. In each terminal set the file path to where the repo sits. Use the following structure to access this folder path.
 
 ```
 cd Documents\folder_where_repo_is
-# Comand to reach folder in my terminal:
+# Comand to reach the folder in my terminal:
  cd Documents\ACoffinCSIS44671\-streaming-05-smart-smoker
 ```
 3. Activate the created RabbitEnv within each terminal.
@@ -355,7 +355,7 @@ python smoker_listening_workerV1.py
 python foodA_listening_workerV1.py
 ```
 
-6. In the thrid terminal run the Consumer, "foodB_listening_workerV1.py"
+6. In the third terminal run the Consumer, "foodB_listening_workerV1.py"
 ```
 python foodB_listening_workerV1.py
 ```
@@ -364,13 +364,13 @@ python foodB_listening_workerV1.py
 ```
 python temp_producerV1.py
 ```
-Once active, it will inquire as to if you want to open RabbitMQ's Admin Panel, answer as you like, a y = yes and n = no. When the code is transmitting the boxes in RabbitMQ will change to green and say running. 
+Once active, it will ask if you want to open RabbitMQ's Admin Panel, answer as you like, a y = yes and n = no. When the code is transmitting the boxes in RabbitMQ will change to green and say running. 
 
 ![RabbitMQDashProducerV1.PNG](/ScreenShots/RabbitMQDashProducerV1.PNG)
 
-Minimize the RabbitMQ Admin Dash after signing in - this will be helpful to trouble shoot if something goes wrong.
+Minimize the RabbitMQ Admin Dash after signing in - this will be helpful to troubleshoot if something goes wrong.
 
-Your screen should look like this once each of the four terminals have been properly set up:
+Your screen should look like this once each of the four terminals has been properly set up:
 ![MultiTerminalSetUpInitial.PNG](ScreenShots/MultiTerminalSetUpInitial.PNG)
 
 
@@ -381,13 +381,13 @@ The temp_producer(Terminal 1) with Smoker Consumer(Terminal 2) and FoodA Consume
 ![Test1FoodAConsumer.PNG](/ScreenShots/Test1FoodAConsumer.PNG)
 
 8. Watch the Terminals
-As each of the terminals executes its own script, the information should move between the Produce and Consumers. Based on that information the following alerts can been seen:
+As each of the terminals executes its own script, the information should move between the Produce and Consumers. Based on that information the following alerts can be seen:
 ![FoodA-Alert!.PNG](ScreenShots/FoodA-Alert!.PNG)
 ![FoodB-Alert.PNG](ScreenShots/FoodB-Alert.PNG)
 ![Smoker-Alert.PNG](ScreenShots/smoker-Alert.PNG)
 
 # 10. Results
-This is the final output, complete with a message added to the logging data for the solo producer and active alerts for when the temperature drops between the Smoker, FoodA and FoodB.
+This is the final output, complete with a message added to the logging data for the solo producer and active alerts for when the temperature drops between the Smoker, FoodA, and FoodB.
 
 ![R4MultiTerminalsAlerts.PNG](/ScreenShots/R4MultiTerminalsAlerts.PNG)
 
@@ -402,6 +402,15 @@ Module 5.1: Guided Producer Design: [https://nwmissouri.instructure.com/courses/
 Module 5.2: Guided Producer Implementation: [https://nwmissouri.instructure.com/courses/60464/pages/module-5-dot-2-guided-producer-implementation?wrap=1](https://nwmissouri.instructure.com/courses/60464/pages/module-5-dot-2-guided-producer-implementation?wrap=1)
 
 streaming-04-multiple-consumers by Dr. Case [https://github.com/denisecase/streaming-04-multiple-consumers](https://github.com/denisecase/streaming-04-multiple-consumers)
+
+Module 6.1: Guided Consumer Design: [https://nwmissouri.instructure.com/courses/60464/pages/module-6-dot-1-guided-consumer-design](https://nwmissouri.instructure.com/courses/60464/pages/module-6-dot-1-guided-consumer-design)
+
+Module 6.2: Guided Consumer Implementation: [https://nwmissouri.instructure.com/courses/60464/pages/module-6-dot-2-guided-consumer-implementation](https://nwmissouri.instructure.com/courses/60464/pages/module-6-dot-2-guided-consumer-implementation)
+
+Python class collections.deque: [https://docs.python.org/3/library/collections.html#collections.deque](https://docs.python.org/3/library/collections.html#collections.deque)
+
+re — Regular expression operations: [https://docs.python.org/3/library/re.html](https://docs.python.org/3/library/re.html)
+pika GitHub: [https://github.com/pika/pika](https://github.com/pika/pika)
 
 
 
