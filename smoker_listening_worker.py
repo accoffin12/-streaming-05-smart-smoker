@@ -1,14 +1,22 @@
 import pika
 import sys
 import time
+from collections import deque
+import re
 from utils.util_logger import setup_logger
 
 # Configuring the Logger:
 logger, logname = setup_logger(__file__)
 
+# define the deque outside of functions, allowing them to be appended
+# each reading is 30 seconds apart, so the maxlen of each dequeue = 2 * window in minutes.\
+# 5/2 = 2.5 minute window
+smoker_deque = deque(maxlen=5) 
+
 
 # Define Program functions
 #--------------------------------------------------------------------------
+
 
 # define a callback function to be called when a message is received
 def callback(ch, method, properties, body):
@@ -17,12 +25,24 @@ def callback(ch, method, properties, body):
     print(f" [x] Received {body.decode()}")
     logger.info(f"[x] Received: {body.decode()}")
     
-    # when done with task, tell the user
-    print(" [x] Done.")
-    logger.info(" [x] Done.")
     # acknowledge the message was received and processed 
     # (now it can be deleted from the queue)
     ch.basic_ack(delivery_tag=method.delivery_tag)
+
+    # Clean the body of the message to find the temperature:
+    body_decode = body.decode('utf-8')
+    temps = re.findall(r'Smoker is temp: (\d+\.\d+)', body_decode)
+    temps_float = float(temps[0])
+    smoker_deque.append(temps_float)
+
+    # Objective, to know if the smoker temp decreases by more than 15 deg F
+    # in 2.5 minutes, resulting in a SMOKER ALERT! being generated
+    if len(smoker_deque) == smoker_deque.maxlen:
+        if smoker_deque[0] - temps_float > 15:
+            smoker_change = smoker_deque[0] - temps_float
+            logger.info(f'* [SMOKER ALERT!] * Temperature has falled by 15 deg F {smoker_change}')
+
+                       
 
 
 # define a main function to run the program
@@ -53,6 +73,7 @@ def main(hn: str = "localhost", qn: str = "01-smoker"):
         # a durable queue will survive a RabbitMQ server restart
         # and help ensure messages are processed in order
         # messages will not be deleted until the consumer acknowledges
+        channel.queue_delete(queue=qn)
         channel.queue_declare(queue=qn, durable=True)
 
         # The QoS level controls the # of messages

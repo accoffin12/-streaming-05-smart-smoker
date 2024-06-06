@@ -126,7 +126,7 @@ try:
                 if smoker_temp:
                     smoker_temp = float(smoker_temp)
                     # Using an f string to send data with timestamp
-                    message = (f"{smoker_queue} Reading = {timestamp}; temp: {smoker_temp} deg F.").encode()
+                    message = (f"{smoker_queue} Reading = {timestamp}; Smoker is temp: {smoker_temp} deg F.").encode()
                     send_message(host, "01-smoker", message)
                     # Prepare a binary message to stream:
                     logger.info(f"[x] sent {smoker_temp} {timestamp} to {smoker_queue}, {message}")
@@ -145,7 +145,8 @@ try:
                     logger.info(f"[x] sent {food_B_temp} at {timestamp} to {foodB_queue}, {message}")
 
                 # Set sleep for 30 seconds before reading the next row:
-                time.sleep(30)
+                #time.sleep(30)
+                time.sleep(5) #Used to test Producer and Consumer Pairs
 
 except FileNotFoundError:
          logger.error("CSV file not found")
