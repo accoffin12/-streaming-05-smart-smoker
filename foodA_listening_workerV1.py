@@ -1,3 +1,17 @@
+"""
+Created by: A. C. Coffin
+Date: 05 June 2024
+
+This Program is designed to collect mesages from the queue "02-food-A" for a Smart Smoker using the "temp_producerV1.py".
+Each message is decoded, the temperature is collected and then added to the foodA_deque.
+A seperate function to determine if the deque is full was added. 
+Based on that information we compare the temperatures inside the deque to determine if the food has stalled. 
+If Y then an Alert is issued.
+
+The Process can be interrupted using Ctrl + C if an escape is needed.
+"""
+
+
 import pika
 import sys
 import time

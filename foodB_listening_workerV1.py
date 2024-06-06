@@ -1,15 +1,16 @@
 """
 Created by: A. C. Coffin
-Date: 05 June 2024
+Date: 06 June 2024
 
-This Program is designed to collect mesages from the queue "01-smoker" for a Smart Smoker using the "temp_producerV1.py".
-Each message is decoded, the temperature is collected and then added to the smoker_deque.
+This Program is designed to collect mesages from the queue "03-food-B" for a Smart Smoker using the "temp_producerV1.py".
+Each message is decoded, the temperature is collected and then added to the foodB_deque.
 A seperate function to determine if the deque is full was added. 
 Based on that information we compare the temperatures inside the deque to determine if the food has stalled. 
 If Y then an Alert is issued.
 
 The Process can be interrupted using Ctrl + C if an escape is needed.
 """
+
 
 import pika
 import sys
@@ -23,8 +24,8 @@ logger, logname = setup_logger(__file__)
 
 # define the deque outside of functions, allowing them to be appended
 # each reading is 30 seconds apart, so the maxlen of each dequeue = 2 * window in minutes.\
-# 5/2 = 2.5 minute window
-smoker_deque = deque(maxlen=5) 
+# 20/2 = 10 minute window
+foodB_deque = deque(maxlen=20) 
 
 
 # Define Program functions
@@ -44,18 +45,18 @@ def callback(ch, method, properties, body):
 
     # Clean the body of the message to find the temperature:
     body_decode = body.decode('utf-8')
-    temps = re.findall(r'Smoker is temp: (\d+\.\d+)', body_decode)
+    temps = re.findall(r'Food-A is temp: (\d+\.\d+)', body_decode)
     temps_float = float(temps[0])
-    smoker_deque.append(temps_float)
+    foodB_deque.append(temps_float)
 
-    # Objective, to know if the smoker temp decreases by more than 15 deg F
-    # in 2.5 minutes, resulting in a SMOKER ALERT! being generated
-    if len(smoker_deque) == smoker_deque.maxlen:
-        if smoker_deque[0] - temps_float > 15:
-            smoker_change = smoker_deque[0] - temps_float
+    # Objective, to know if the smoker has stalled resulting in a less than 1 deg. F change in food
+    # in 10 minutes, resulting in a FOOD-A ALERT! being generated
+    if len(foodB_deque) == foodB_deque.maxlen:
+        if foodB_deque[0] - temps_float < 1:
+            foodB_change = foodB_deque[0] - temps_float
             logger.info(f'''
-                        ************************ [SMOKER ALERT!!!!] *****************************
-                        Smoker Temperature has fell by 15 deg F {smoker_change} in 2.5 minutes!
+                        ************************ [FOOD-A ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F {foodB_change} in 10 minutes!
                         Please Check Fuel Source and Lid Closure!!!
                         *************************************************************************
                         ''')
@@ -64,7 +65,7 @@ def callback(ch, method, properties, body):
 
 
 # define a main function to run the program
-def main(hn: str = "localhost", qn: str = "01-smoker"):
+def main(hn: str = "localhost", qn: str ="03-food-B"):
     """ Continuously listen for task messages on a named queue."""
 
     # when a statement can go wrong, use a try-except block
@@ -140,4 +141,4 @@ def main(hn: str = "localhost", qn: str = "01-smoker"):
 # If this is the program being run, then execute the code below
 if __name__ == "__main__":
     # call the main function with the information needed
-    main("localhost", "01-smoker")
+    main("localhost", "03-food-B")
