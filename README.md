@@ -146,10 +146,13 @@ We want to stream information from a smart smoker. Read one value every half min
 
 smoker-temps.csv has 4 columns:
 
-[0] Time = Date-time stamp for the sensor reading
-[1] Channel1 = Smoker Temp --> send to message queue "01-smoker"
-[2] Channel2 = Food A Temp --> send to message queue "02-food-A"
-[3] Channel3 = Food B Temp --> send to message queue "03-food-B"
+* [0] Time = Date-time stamp for the sensor reading
+* [1] Channel1 = Smoker Temp --> send to message queue "01-smoker"
+* [2] Channel2 = Food A Temp --> send to message queue "02-food-A"
+* [3] Channel3 = Food B Temp --> send to message queue "03-food-B"
+
+**Time stamps were addressed by adding seconds to each of the times to differentiate between each reading in increments of 5 and 10 minutes depending on the number of timestamps for each minute.** 
+
 ## 6a. Required Approach
 * Use your Module 4 projects (Version 2 and Version 3) as examples.
 * Remember: No prior coding experience is required to take this course. Rely heavily on the working examples from earlier modules. 
