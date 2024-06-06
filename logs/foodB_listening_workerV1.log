@@ -1,0 +1,154 @@
+2024-06-06 12:00:33,727.foodB_listening_workerV1.INFO ==================================================
+2024-06-06 12:00:33,728.foodB_listening_workerV1.INFO Today is 2024-06-06 at 12:00 PM
+2024-06-06 12:00:33,728.foodB_listening_workerV1.INFO Running on: nt Windows 10
+2024-06-06 12:00:33,729.foodB_listening_workerV1.INFO Python version:  3.12.3
+2024-06-06 12:00:33,730.foodB_listening_workerV1.INFO Python path: C:\Users\Tower\anaconda3\envs\RabbitEnv
+2024-06-06 12:00:33,731.foodB_listening_workerV1.INFO Working dir: C:\Users\Tower\Documents\ACoffinCSIS44671\-streaming-05-smart-smoker
+2024-06-06 12:00:33,732.foodB_listening_workerV1.INFO ==================================================
+2024-06-06 12:00:33,808.foodB_listening_workerV1.INFO  [*] Ready for work. To exit press CTRL+C
+2024-06-06 12:00:51,363.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:01:30; Food-B is temp: 38.5 deg F.
+2024-06-06 12:02:51,492.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:02:25; Food-B is temp: 39.2 deg F.
+2024-06-06 12:03:21,519.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:02:30; Food-B is temp: 39.2 deg F.
+2024-06-06 12:05:21,617.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:03:20; Food-B is temp: 39.8 deg F.
+2024-06-06 12:05:51,640.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:03:25; Food-B is temp: 39.8 deg F.
+2024-06-06 12:07:51,759.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:04:25; Food-B is temp: 40.4 deg F.
+2024-06-06 12:08:21,784.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:04:30; Food-B is temp: 40.4 deg F.
+2024-06-06 12:10:21,909.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:05:20; Food-B is temp: 41.1 deg F.
+2024-06-06 12:10:51,933.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:05:30; Food-B is temp: 41.1 deg F.
+2024-06-06 12:12:52,057.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:06:25; Food-B is temp: 41.9 deg F.
+2024-06-06 12:13:22,083.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:06:30; Food-B is temp: 41.9 deg F.
+2024-06-06 12:15:22,180.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:07:15; Food-B is temp: 42.7 deg F.
+2024-06-06 12:15:54,271.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:07:10; Food-B is temp: 42.7 deg F.
+2024-06-06 12:17:54,400.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:08:30; Food-B is temp: 43.4 deg F.
+2024-06-06 12:18:24,426.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:08:40; Food-B is temp: 43.4 deg F.
+2024-06-06 12:20:24,552.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:09:25; Food-B is temp: 44.3 deg F.
+2024-06-06 12:20:54,578.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:09:30; Food-B is temp: 44.3 deg F.
+2024-06-06 12:22:54,708.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:10:30; Food-B is temp: 45.4 deg F.
+2024-06-06 12:23:24,733.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:10:35; Food-B is temp: 45.4 deg F.
+2024-06-06 12:25:24,854.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:11:25; Food-B is temp: 46.1 deg F.
+2024-06-06 12:25:24,855.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -7.600000000000001 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:25:54,880.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:11:30; Food-B is temp: 46.1 deg F.
+2024-06-06 12:25:54,881.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -6.899999999999999 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:27:55,006.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:12:25; Food-B is temp: 47.1 deg F.
+2024-06-06 12:27:55,008.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -7.899999999999999 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:28:25,032.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:12:30; Food-B is temp: 47.1 deg F.
+2024-06-06 12:28:25,034.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -7.300000000000004 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:30:25,165.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:13:30; Food-B is temp: 48.1 deg F.
+2024-06-06 12:30:25,166.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -8.300000000000004 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:30:55,192.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:13:35; Food-B is temp: 48.1 deg F.
+2024-06-06 12:30:55,194.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -7.700000000000003 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:32:55,321.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:14:25; Food-B is temp: 49.1 deg F.
+2024-06-06 12:32:55,322.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -8.700000000000003 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:33:25,350.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:14:30; Food-B is temp: 49.1 deg F.
+2024-06-06 12:33:25,351.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -8.0 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:35:25,480.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:15:25; Food-B is temp: 50.2 deg F.
+2024-06-06 12:35:25,482.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -9.100000000000001 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:35:55,495.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:15:30; Food-B is temp: 50.2 deg F.
+2024-06-06 12:35:55,496.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -8.300000000000004 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:37:55,618.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:16:20; Food-B is temp: 51.2 deg F.
+2024-06-06 12:37:55,619.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -9.300000000000004 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:38:25,644.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:16:25; Food-B is temp: 51.2 deg F.
+2024-06-06 12:38:25,645.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -8.5 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:40:25,770.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:17:25; Food-B is temp: 52.3 deg F.
+2024-06-06 12:40:25,771.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -9.599999999999994 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:40:55,795.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:17:30; Food-B is temp: 52.3 deg F.
+2024-06-06 12:40:55,796.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -8.899999999999999 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:42:55,918.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:18:20; Food-B is temp: 53.3 deg F.
+2024-06-06 12:42:55,919.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -9.899999999999999 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:43:25,943.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:18:25; Food-B is temp: 53.3 deg F.
+2024-06-06 12:43:25,944.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -9.0 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:45:26,072.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:19:25; Food-B is temp: 54.4 deg F.
+2024-06-06 12:45:26,074.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -10.100000000000001 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:45:56,099.foodB_listening_workerV1.INFO [x] Received: 03-food-B Reading = 05/22/21 14:19:30; Food-B is temp: 54.4 deg F.
+2024-06-06 12:45:56,100.foodB_listening_workerV1.INFO 
+                        ************************ [FOOD-B ALERT!!!!] *****************************
+                        Food-A Temperature Stalled! deg F -9.0 in 10 minutes!
+                        Please Check Fuel Source and Lid Closure!!!
+                        *************************************************************************
+                        
+2024-06-06 12:46:49,542.foodB_listening_workerV1.INFO KeyboardInterrupt. Stopping the Program

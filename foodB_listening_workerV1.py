@@ -45,17 +45,17 @@ def callback(ch, method, properties, body):
 
     # Clean the body of the message to find the temperature:
     body_decode = body.decode('utf-8')
-    temps = re.findall(r'Food-A is temp: (\d+\.\d+)', body_decode)
+    temps = re.findall(r'Food-B is temp: (\d+\.\d+)', body_decode)
     temps_float = float(temps[0])
     foodB_deque.append(temps_float)
 
     # Objective, to know if the smoker has stalled resulting in a less than 1 deg. F change in food
     # in 10 minutes, resulting in a FOOD-A ALERT! being generated
     if len(foodB_deque) == foodB_deque.maxlen:
-        if foodB_deque[0] - temps_float < 1:
+        if foodB_deque[0] - temps_float <= 1:
             foodB_change = foodB_deque[0] - temps_float
             logger.info(f'''
-                        ************************ [FOOD-A ALERT!!!!] *****************************
+                        ************************ [FOOD-B ALERT!!!!] *****************************
                         Food-A Temperature Stalled! deg F {foodB_change} in 10 minutes!
                         Please Check Fuel Source and Lid Closure!!!
                         *************************************************************************

@@ -51,7 +51,7 @@ def callback(ch, method, properties, body):
     # Objective, to know if the smoker temp decreases by more than 15 deg F
     # in 2.5 minutes, resulting in a SMOKER ALERT! being generated
     if len(smoker_deque) == smoker_deque.maxlen:
-        if smoker_deque[0] - temps_float > 15:
+        if smoker_deque[0] - temps_float >= 15:
             smoker_change = smoker_deque[0] - temps_float
             logger.info(f'''
                         ************************ [SMOKER ALERT!!!!] *****************************

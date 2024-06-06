@@ -52,7 +52,7 @@ def callback(ch, method, properties, body):
     # Objective, to know if the smoker has stalled resulting in a less than 1 deg. F change in food
     # in 10 minutes, resulting in a FOOD-A ALERT! being generated
     if len(foodA_deque) == foodA_deque.maxlen:
-        if foodA_deque[0] - temps_float < 1:
+        if foodA_deque[0] - temps_float <= 1:
             foodA_change = foodA_deque[0] - temps_float
             logger.info(f'''
                         ************************ [FOOD-A ALERT!!!!] *****************************

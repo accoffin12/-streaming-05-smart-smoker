@@ -139,13 +139,13 @@ try:
                 # Created a message for food_B_temp
                 if food_B_temp:
                     food_B_temp = float(food_B_temp)
-                    message = (f"{foodB_queue} Reading = {timestamp}; Food-B is temp: {food_A_temp} deg F.").encode()
+                    message = (f"{foodB_queue} Reading = {timestamp}; Food-B is temp: {food_B_temp} deg F.").encode()
                     send_message(host, "03-food-B", message)
                     logger.info(f"[x] sent {food_B_temp} at {timestamp} to {foodB_queue}, {message}")
 
                 # Set sleep for 30 seconds before reading the next row:
-                #time.sleep(30)
-                time.sleep(5) #Used to test Producer and Consumer Pairs
+                time.sleep(30)
+                #time.sleep(5) #Used to test Producer and Consumer Pairs
 
 except FileNotFoundError:
          logger.error("CSV file not found")
